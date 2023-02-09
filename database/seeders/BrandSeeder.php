@@ -24,5 +24,11 @@ class BrandSeeder extends Seeder
         Brand::create([
             'brand_name' => 'Nokia',
         ]);
+        Brand::create([
+            'brand_name' => 'Vivo',
+        ]);
+        Brand::create([
+            'brand_name' => 'Dell',
+        ]);
     }
 }

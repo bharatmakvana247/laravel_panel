@@ -55,8 +55,8 @@
                     name: 'product_name'
                 },
                 {
-                    data: 'product_details',
-                    name: 'product_details'
+                    data: 'productDetails',
+                    name: 'productDetails'
                 },
                 {
                     data: 'category_id',

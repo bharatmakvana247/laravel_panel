@@ -39,6 +39,16 @@ Route::post('/login', [AuthController::class, 'customLogin'])->name('admin.login
 Route::get('/register', [AuthController::class, 'register'])->name('admin.register');
 Route::post('/customRegister', [AuthController::class, 'customRegister'])->name('admin.customRegister');
 
+// ---------------------------- Google Socialite Login ---------------------------------------
+
+Route::get('authorized/google', [AuthController::class, 'redirectToGoogle'])->name('authorized.google');
+Route::get('authorized/google/callback', [AuthController::class, 'handleGoogleCallback']);
+
+// Facebook
+
+Route::get('auth/facebook', [AuthController::class, 'facebookRedirect']);
+Route::get('auth/facebook/callback', [AuthController::class, 'loginWithFacebook']);
+
 // ---------------------------- Password Reset ---------------------------------------
 
 Route::get('admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');

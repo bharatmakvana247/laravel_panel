@@ -52,7 +52,7 @@
                         </div>
                         <div class="row g-0 justify-content-center">
                             <div class="col-sm-8 col-xl-4">
-                                <form class="js-validation-signup" action="{{ route('admin.register.store') }}"
+                                <form class="js-validation-signup" action="{{ route('admin.customRegister') }}"
                                     method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-4">

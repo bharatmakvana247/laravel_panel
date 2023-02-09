@@ -1,7 +1,7 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Laravel',
+    'name' => 'LaravelPanel',
     'env' => 'local',
     'debug' => true,
     'url' => 'http://LaravelPanel.test',
@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:oJkSY8fxVlmifHiZszpmREa6nHAEsVbd3xh4v0C0I0g=',
+    'key' => 'base64:zAfzQCgBNjLJ7dzDntqRb9k8w8mXd4GqEa28Req+uWY=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -21,32 +21,33 @@
       0 => 'Yajra\\DataTables\\DataTablesServiceProvider',
       1 => 'Yajra\\DataTables\\ButtonsServiceProvider',
       2 => 'Mckenziearts\\Notify\\LaravelNotifyServiceProvider',
-      3 => 'Illuminate\\Auth\\AuthServiceProvider',
-      4 => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
-      5 => 'Illuminate\\Bus\\BusServiceProvider',
-      6 => 'Illuminate\\Cache\\CacheServiceProvider',
-      7 => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',
-      8 => 'Illuminate\\Cookie\\CookieServiceProvider',
-      9 => 'Illuminate\\Database\\DatabaseServiceProvider',
-      10 => 'Illuminate\\Encryption\\EncryptionServiceProvider',
-      11 => 'Illuminate\\Filesystem\\FilesystemServiceProvider',
-      12 => 'Illuminate\\Foundation\\Providers\\FoundationServiceProvider',
-      13 => 'Illuminate\\Hashing\\HashServiceProvider',
-      14 => 'Illuminate\\Mail\\MailServiceProvider',
-      15 => 'Illuminate\\Notifications\\NotificationServiceProvider',
-      16 => 'Illuminate\\Pagination\\PaginationServiceProvider',
-      17 => 'Illuminate\\Pipeline\\PipelineServiceProvider',
-      18 => 'Illuminate\\Queue\\QueueServiceProvider',
-      19 => 'Illuminate\\Redis\\RedisServiceProvider',
-      20 => 'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider',
-      21 => 'Illuminate\\Session\\SessionServiceProvider',
-      22 => 'Illuminate\\Translation\\TranslationServiceProvider',
-      23 => 'Illuminate\\Validation\\ValidationServiceProvider',
-      24 => 'Illuminate\\View\\ViewServiceProvider',
-      25 => 'App\\Providers\\AppServiceProvider',
-      26 => 'App\\Providers\\AuthServiceProvider',
-      27 => 'App\\Providers\\EventServiceProvider',
-      28 => 'App\\Providers\\RouteServiceProvider',
+      3 => 'Laravel\\Socialite\\SocialiteServiceProvider',
+      4 => 'Illuminate\\Auth\\AuthServiceProvider',
+      5 => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
+      6 => 'Illuminate\\Bus\\BusServiceProvider',
+      7 => 'Illuminate\\Cache\\CacheServiceProvider',
+      8 => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',
+      9 => 'Illuminate\\Cookie\\CookieServiceProvider',
+      10 => 'Illuminate\\Database\\DatabaseServiceProvider',
+      11 => 'Illuminate\\Encryption\\EncryptionServiceProvider',
+      12 => 'Illuminate\\Filesystem\\FilesystemServiceProvider',
+      13 => 'Illuminate\\Foundation\\Providers\\FoundationServiceProvider',
+      14 => 'Illuminate\\Hashing\\HashServiceProvider',
+      15 => 'Illuminate\\Mail\\MailServiceProvider',
+      16 => 'Illuminate\\Notifications\\NotificationServiceProvider',
+      17 => 'Illuminate\\Pagination\\PaginationServiceProvider',
+      18 => 'Illuminate\\Pipeline\\PipelineServiceProvider',
+      19 => 'Illuminate\\Queue\\QueueServiceProvider',
+      20 => 'Illuminate\\Redis\\RedisServiceProvider',
+      21 => 'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider',
+      22 => 'Illuminate\\Session\\SessionServiceProvider',
+      23 => 'Illuminate\\Translation\\TranslationServiceProvider',
+      24 => 'Illuminate\\Validation\\ValidationServiceProvider',
+      25 => 'Illuminate\\View\\ViewServiceProvider',
+      26 => 'App\\Providers\\AppServiceProvider',
+      27 => 'App\\Providers\\AuthServiceProvider',
+      28 => 'App\\Providers\\EventServiceProvider',
+      29 => 'App\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -90,6 +91,7 @@
       'View' => 'Illuminate\\Support\\Facades\\View',
       'Vite' => 'Illuminate\\Support\\Facades\\Vite',
       'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
+      'Socialite' => 'Laravel\\Socialite\\Facades\\Socialite',
     ),
   ),
   'auth' => 
@@ -243,7 +245,7 @@
         'driver' => 'octane',
       ),
     ),
-    'prefix' => 'laravel_cache_',
+    'prefix' => 'laravelpanel_cache_',
   ),
   'cors' => 
   array (
@@ -342,7 +344,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'laravel_database_',
+        'prefix' => 'laravelpanel_database_',
       ),
       'default' => 
       array (
@@ -622,11 +624,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'sandbox.smtp.mailtrap.io',
-        'port' => '2525',
-        'encryption' => 'tls',
-        'username' => 'cf7a4d81992137',
-        'password' => '92eab18fec1ae2',
+        'host' => 'smtp.gmail.com',
+        'port' => '587',
+        'encryption' => 'ssl',
+        'username' => 'bharatam@infusionanalysts.com',
+        'password' => 'cmrzygrsajmjtamv',
         'timeout' => NULL,
         'local_domain' => NULL,
       ),
@@ -668,8 +670,8 @@
     ),
     'from' => 
     array (
-      'address' => 'hello@example.com',
-      'name' => 'Laravel',
+      'address' => 'bharatam@infusionanalysts.com',
+      'name' => 'LaravelPanel',
     ),
     'markdown' => 
     array (
@@ -791,6 +793,18 @@
       'secret' => '',
       'region' => 'us-east-1',
     ),
+    'google' => 
+    array (
+      'client_id' => '144580276186-mt9cp8osbkfie5ceddq6fui8uberi4cb.apps.googleusercontent.com',
+      'client_secret' => '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',
+      'redirect' => 'http://127.0.0.1:8000/admin/redirect',
+    ),
+    'facebook' => 
+    array (
+      'client_id' => '144580276186-mt9cp8osbkfie5ceddq6fui8uberi4cb.apps.googleusercontent.com',
+      'client_secret' => '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',
+      'redirect' => 'http://127.0.0.1:8000/auth/facebook/callback',
+    ),
   ),
   'session' => 
   array (
@@ -807,7 +821,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'laravel_session',
+    'cookie' => 'laravelpanel_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => NULL,

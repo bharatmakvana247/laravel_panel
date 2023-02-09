@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
-use Exception;
+use Exception, Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -34,17 +34,29 @@ class ProductController extends Controller
         if ($request->ajax()) {
             $products = Product::orderBy('product_id', 'desc');
             return DataTables::of($products)->addIndexColumn()
-                ->editColumn('category_id', function (Product $products) {
-                    return $products->category->category_name; //Product->Category->CategoryName
+                ->addColumn('category_id', function (Product $products) {
+                    if (!empty($products->category->category_name)) {
+                        return $products->category->category_name; //Product->Category->CategoryName
+                    } else {
+                        return 'N/A';
+                    }
                 })
-                ->editColumn('brand_id', function (Product $products) {
-                    return $products->brand->brand_name;
+                ->addColumn('brand_id', function (Product $products) {
+                    if (!empty($products->brand->brand_name)) {
+                        return $products->brand->brand_name;
+                    } else {
+                        return 'N/A';
+                    }
+                })
+                ->addColumn('productDetails', function (Product $products) {
+                    // return $products->product_details;
+                    return  Str::limit($products->product_details, 25);
                 })
                 ->addColumn('productimage', function (Product $products) {
                     if (!empty($products->product_image)) {
                         return '<img src=' . url("storage/productImage/$products->product_image") . '  width="80%" height="50%" class="img-rounded" align="center" />';
                     } else {
-                        return '<img src=' . url("storage/productImage/default.png") . '  width="80%" height="50%" class="img-rounded" align="center" />';
+                        return '<img src=' . url("storage/productImage/default.png") . '  width="70%" height="40%" class="img-rounded" align="center" />';
                     }
                 })
                 ->addColumn('action', function (Product $product) {
@@ -54,7 +66,7 @@ class ProductController extends Controller
                     $action .= '<a href="javascript:void(0)" class="btn btn-primary btn-circle btn-sm Showpromo" data-id="' . '' . '" data-toggle="tooltip" title="Show"><i class="fa fa-eye"></i></a>';
                     return $action;
                 })
-                ->rawColumns(['action', 'category_id', 'brand_id', 'productimage'])
+                ->rawColumns(['action', 'category_id', 'brand_id', 'productimage', 'productDetails'])
                 ->make(true);
         }
         return view('backend.pages.product.index');
