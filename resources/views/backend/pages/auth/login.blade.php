@@ -81,8 +81,9 @@
                                                 alt="Google" class="img-circle"
                                                 style="height:25px;width:25px;border-radius:50px"></a>
 
-                                        <a href=""> <img src="{!! url('storage/socialite/facebook.png') !!}" alt="Facebook"
-                                                class="img-circle" style="height:25px;width:25px;border-radius:50px"></a>
+                                        <a href="{{ route('authorized.facebook') }}"> <img src="{!! url('storage/socialite/facebook.png') !!}"
+                                                alt="Facebook" class="img-circle"
+                                                style="height:25px;width:25px;border-radius:50px"></a>
 
                                         <a href=""> <img src="{!! url('storage/socialite/github.png') !!}" alt="Facebook"
                                                 class="img-circle" style="height:25px;width:25px;border-radius:50px"></a>
@@ -91,13 +92,6 @@
                                         <a href=""> <img src="{!! url('storage/socialite/insta.png') !!}" alt="Facebook"
                                                 class="img-circle" style="height:25px;width:25px;border-radius:50px"></a>
                                     </div><br>
-                                    {{-- Login with Facebook --}}
-                                    <div class="flex items-center justify-end mt-4">
-                                        <a class="btn" href="{{ url('auth/facebook') }}"
-                                            style="background: #3B5499; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
-                                            Login with Facebook
-                                        </a>
-                                    </div>
                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                         <div>
                                             <a class="text-muted fs-sm fw-medium d-block d-lg-inline-block mb-1"

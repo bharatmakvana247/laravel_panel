@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::zWkK6KfIsaieIAqs',
+            '_route' => 'generated::XUmni6ObapZWQpS5',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::dP1LCpVITWVwS0Hh',
+            '_route' => 'generated::6XAfFEKW8UQsnqwv',
           ),
           1 => NULL,
           2 => 
@@ -142,7 +142,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Ae3SqyovUBfk5lBH',
+            '_route' => 'generated::SFcV2Vbpql02GDgY',
           ),
           1 => NULL,
           2 => 
@@ -254,7 +254,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/authorized/google' => 
+      '/admin/authorized/google' => 
       array (
         0 => 
         array (
@@ -274,13 +274,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/authorized/google/callback' => 
+      '/admin/authorized/google/callback' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::9n8Ez8C4tnYjVwED',
+            '_route' => 'generated::Ck6kQqRnsQ4w1NNF',
           ),
           1 => NULL,
           2 => 
@@ -294,13 +294,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/auth/facebook' => 
+      '/admin/authorized/facebook' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::E0npIiz2fg3gJhOk',
+            '_route' => 'authorized.facebook',
           ),
           1 => NULL,
           2 => 
@@ -314,13 +314,53 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/auth/facebook/callback' => 
+      '/admin/authorized/facebook/callback' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::SYqhcIyhtqji6MIt',
+            '_route' => 'generated::V2ESAET90pOPF5wA',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/authorized/instagram' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'authorized.instagram',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/authorized/instagram/callback' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::bnNWfu2B646D4c0q',
           ),
           1 => NULL,
           2 => 
@@ -915,7 +955,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::zWkK6KfIsaieIAqs' => 
+    'generated::XUmni6ObapZWQpS5' => 
     array (
       'methods' => 
       array (
@@ -927,7 +967,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => '\\Illuminate\\Routing\\ViewController@__invoke',
         'controller' => '\\Illuminate\\Routing\\ViewController',
-        'as' => 'generated::zWkK6KfIsaieIAqs',
+        'as' => 'generated::XUmni6ObapZWQpS5',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1060,7 +1100,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::dP1LCpVITWVwS0Hh' => 
+    'generated::6XAfFEKW8UQsnqwv' => 
     array (
       'methods' => 
       array (
@@ -1077,13 +1117,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:295:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006230000000000000000";}";s:4:"hash";s:44:"dV66HoxiN8uYKuJx4zLRiGbcP9eDuupjOn3zw/otDBA=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006270000000000000000";}";s:4:"hash";s:44:"oIJ57jhqCvMyhOllxo/sFBdLPEfoWsTwQVvCV1dGh8k=";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::dP1LCpVITWVwS0Hh',
+        'as' => 'generated::6XAfFEKW8UQsnqwv',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1099,7 +1139,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Ae3SqyovUBfk5lBH' => 
+    'generated::SFcV2Vbpql02GDgY' => 
     array (
       'methods' => 
       array (
@@ -1125,13 +1165,13 @@ app('router')->setCompiledRoutes(
     return \\response()->json([
         \'message\' => \'All cache removed successfully.\'
     ]);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006250000000000000000";}";s:4:"hash";s:44:"e9cU9sogl/MwTII+VuU78Z6uS+Qflz2OeIq0LD+pTCw=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006290000000000000000";}";s:4:"hash";s:44:"9DrEArh26W4AV1s8y/uvYK9v1eUNfGvZ8cFX9FNdmwQ=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::Ae3SqyovUBfk5lBH',
+        'as' => 'generated::SFcV2Vbpql02GDgY',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1337,7 +1377,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'authorized/google',
+      'uri' => 'admin/authorized/google',
       'action' => 
       array (
         'middleware' => 
@@ -1367,14 +1407,14 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::9n8Ez8C4tnYjVwED' => 
+    'generated::Ck6kQqRnsQ4w1NNF' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'authorized/google/callback',
+      'uri' => 'admin/authorized/google/callback',
       'action' => 
       array (
         'middleware' => 
@@ -1388,7 +1428,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::9n8Ez8C4tnYjVwED',
+        'as' => 'generated::Ck6kQqRnsQ4w1NNF',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1404,14 +1444,14 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::E0npIiz2fg3gJhOk' => 
+    'authorized.facebook' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'auth/facebook',
+      'uri' => 'admin/authorized/facebook',
       'action' => 
       array (
         'middleware' => 
@@ -1425,7 +1465,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::E0npIiz2fg3gJhOk',
+        'as' => 'authorized.facebook',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1441,14 +1481,14 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::SYqhcIyhtqji6MIt' => 
+    'generated::V2ESAET90pOPF5wA' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'auth/facebook/callback',
+      'uri' => 'admin/authorized/facebook/callback',
       'action' => 
       array (
         'middleware' => 
@@ -1462,7 +1502,81 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::SYqhcIyhtqji6MIt',
+        'as' => 'generated::V2ESAET90pOPF5wA',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'authorized.instagram' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/authorized/instagram',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AuthController@instagramRedirect',
+        'controller' => 'App\\Http\\Controllers\\AuthController@instagramRedirect',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'authorized.instagram',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::bnNWfu2B646D4c0q' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/authorized/instagram/callback',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AuthController@loginWithInstagram',
+        'controller' => 'App\\Http\\Controllers\\AuthController@loginWithInstagram',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::bnNWfu2B646D4c0q',
       ),
       'fallback' => false,
       'defaults' => 

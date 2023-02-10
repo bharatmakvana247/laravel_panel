@@ -41,13 +41,19 @@ Route::post('/customRegister', [AuthController::class, 'customRegister'])->name(
 
 // ---------------------------- Google Socialite Login ---------------------------------------
 
-Route::get('authorized/google', [AuthController::class, 'redirectToGoogle'])->name('authorized.google');
-Route::get('authorized/google/callback', [AuthController::class, 'handleGoogleCallback']);
+Route::get('admin/authorized/google', [AuthController::class, 'redirectToGoogle'])->name('authorized.google');
+Route::get('admin/authorized/google/callback', [AuthController::class, 'handleGoogleCallback']);
 
-// Facebook
+// ---------------------------- Facebook Socialite Login ---------------------------------------
 
-Route::get('auth/facebook', [AuthController::class, 'facebookRedirect']);
-Route::get('auth/facebook/callback', [AuthController::class, 'loginWithFacebook']);
+Route::get('admin/authorized/facebook', [AuthController::class, 'facebookRedirect'])->name('authorized.facebook');
+Route::get('admin/authorized/facebook/callback', [AuthController::class, 'loginWithFacebook']);
+
+// ---------------------------- Instagram Socialite Login ---------------------------------------
+
+Route::get('admin/authorized/instagram', [AuthController::class, 'instagramRedirect'])->name('authorized.instagram');
+
+Route::get('admin/authorized/instagram/callback', [AuthController::class, 'loginWithInstagram']);
 
 // ---------------------------- Password Reset ---------------------------------------
 
