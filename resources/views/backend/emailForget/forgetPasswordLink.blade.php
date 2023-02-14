@@ -54,7 +54,7 @@
                         </div>
                         <div class="row g-0 justify-content-center">
                             <div class="col-sm-8 col-xl-4">
-                                <form class="js-validation-signup" action="{{ route('reset.password.post') }}"
+                                <form class="js-validation-signup" action="{{ route('admin.resetPassword.post') }}"
                                     method="POST">
                                     @csrf
                                     <input type="hidden" name="token" value="{{ $token }}">

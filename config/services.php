@@ -43,9 +43,15 @@ return [
         'redirect' => 'https://127.0.0.1:8000/admin/authorized/facebook/callback',
     ],
 
-    'instagram' => [
-        'client_id' => env('INSTAGRAM_CLIENT_ID'),
-        'client_secret' => env('INSTAGRAM_CLIENT_SECRET'),
-        'redirect' => env('INSTAGRAM_REDIRECT_URI'),
+    'github' => [
+        'client_id' =>  env('GITHUB_CLIENT_ID', 'a0550045595afd3e92cd'),
+        'client_secret' =>  env('GITHUB_CLIENT_SECRET', '60a548d656ab0cfd2958d831de59ba687bebf7bc'),
+        'redirect' => 'http://127.0.0.1:8000/admin/authorized/github/callback',
+    ],
+
+    'linkedin' => [
+        'client_id' =>  env('LINKEDIN_CLIENT_ID', '78r0mx0vpknw2m'),
+        'client_secret' => env('LINKEDIN_CLIENT_SECRET', 'XFHdBMbdk3RcRL5B'),
+        'redirect' => 'http://127.0.0.1:8000/admin/authorized/linkedin/callback',
     ],
 ];

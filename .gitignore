@@ -4,10 +4,6 @@
 /public/storage
 /storage/*.key
 /vendor
-/bootstrap/cache
-/storage/logs
-/storage/framework/sessions
-/storage/logs/
 .env
 .env.backup
 .env.production

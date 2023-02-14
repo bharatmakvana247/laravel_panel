@@ -7,25 +7,43 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage as FacadesStorage;
 use Illuminate\Support\Facades\Validator;
 use Storage;
-use Helmesvs\Notify\Facades\Notify;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
     public function welcome()
     {
         return view('welcome');
     }
 
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         return view('backend.pages.auth.login');
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     *  @param  \Illuminate\Http\Request  $request
+     */
     public function customLogin(Request $request)
     {
+        // dd($request->all());
         $customMessages = [
             'email.required' => 'Please Enter Email.',
             'password.required' => 'Please Enter Password.',
@@ -34,20 +52,52 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required|confirmed|min:6',
         ], $customMessages);
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            smilify('success', 'Welcome to Admin Panel. ⚡️');
-            return redirect()->route('admin.dashboard');
+
+        $remember_me = $request->has('remember_me') ? true : false;
+
+        if (auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $remember_me)) {
+            if (!empty($request->has('remember_me'))) {
+                $email_cookie = $request->email;
+                $password_cookie = $request->password;
+                setcookie("email_cookie", $email_cookie, time() + 3600, '/');
+                setcookie("password_cookie", $password_cookie, time() + 3600, '/');
+            } else {
+                if (isset($_COOKIE['email_cookie'])) {
+                    setcookie("email_cookie", "", time() + 3600, '/');
+                }
+                if (isset($_COOKIE['password_cookie'])) {
+                    setcookie("password_cookie", "", time() + 3600, '/');
+                }
+            }
+            $credentials = $request->only('email', 'password');
+            if (Auth::attempt($credentials)) {
+                smilify('success', 'Welcome to Admin Panel. ⚡️');
+                return redirect()->route('admin.dashboard');
+            }
         }
+
         smilify('error', 'Login details are not valid');
         return redirect()->route('admin.login');
     }
 
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function register()
     {
         return view('backend.pages.auth.registration');
     }
 
+
+    /**
+     * Store a newly users created resource in storage
+     *
+     * @param  \Illuminate\Http\Request  $request
+     */
     public function customRegister(Request $request)
     {
         $customMessages = [
@@ -74,7 +124,7 @@ class AuthController extends Controller
                 if ($file->isValid()) {
                     $extension = $file->getClientOriginalExtension();
                     $filename = $file->getClientOriginalName();
-                    Storage::disk('public')->putFileAs('userImage', $file, $filename);
+                    FacadesStorage::disk('public')->putFileAs('userImage', $file, $filename);
                 }
             } else {
                 $filename = 'default.png';
@@ -92,12 +142,21 @@ class AuthController extends Controller
         }
     }
 
-    //Google
+
+    /**
+     * Display via Google Socialite
+     *
+     */
     public function redirectToGoogle()
     {
         return Socialite::driver('google')->redirect();
     }
 
+
+    /**
+     * Store a newly Via Google socialite
+     *
+     */
     public function handleGoogleCallback()
     {
         try {
@@ -105,7 +164,7 @@ class AuthController extends Controller
             $is_user = User::where('social_id', $user->id)->first();
             if (!empty($user->avatar)) {
                 $filename = $user->id . '.png';
-                Storage::disk('public')->put('userImage/' . $filename, file_get_contents($user->avatar));
+                FacadesStorage::disk('public')->put('userImage/' . $filename, file_get_contents($user->avatar));
             } else {
                 $filename = 'default.png';
             }
@@ -139,12 +198,23 @@ class AuthController extends Controller
         }
     }
 
-    // Facebook Login
+
+    /**
+     * Show Login in Facebook  Socialite
+     *
+     * @return response()
+     */
     public function facebookRedirect()
     {
         return Socialite::driver('facebook')->redirect();
     }
 
+
+    /**
+     * Login Via Facebook
+     *
+     * @return response()
+     */
     public function loginWithFacebook()
     {
         try {
@@ -152,7 +222,7 @@ class AuthController extends Controller
             $is_user = User::where('social_id', $user->id)->first();
             if (!empty($user->avatar)) {
                 $filename = $user->id . '.png';
-                Storage::disk('public')->put('userImage/' . $filename, file_get_contents($user->avatar));
+                FacadesStorage::disk('public')->put('userImage/' . $filename, file_get_contents($user->avatar));
             } else {
                 $filename = 'default.png';
             }
@@ -186,55 +256,119 @@ class AuthController extends Controller
         }
     }
 
-    // Instagram Login
-    public function instagramRedirect()
+    /**
+     * Show Login in github Socialite
+     *
+     * @return response()
+     */
+    public function githubRedirect()
     {
-        $appId = config('services.instagram.client_id');
-        $redirectUri = urlencode(config('services.instagram.redirect'));
-        return redirect()->to("https://api.instagram.com/oauth/authorize?app_id={$appId}&redirect_uri={$redirectUri}&scope=user_profile,user_media&response_type=code");
+        return Socialite::driver('github')->redirect();
     }
 
-    public function loginWithInstagram(Request $request)
+    /**
+     * Login Via Facebook
+     *
+     * @return response()
+     */
+    public function loginWithGithub()
     {
-        $code = $request->code;
-        if (empty($code)) return redirect()->route('home')->with('error', 'Failed to login with Instagram.');
-
-        $appId = config('services.instagram.client_id');
-        $secret = config('services.instagram.client_secret');
-        $redirectUri = config('services.instagram.redirect');
-
-        $client = new Client();
-
-        // Get access token
-        $response = $client->request('POST', 'https://api.instagram.com/oauth/access_token', [
-            'form_params' => [
-                'app_id' => $appId,
-                'app_secret' => $secret,
-                'grant_type' => 'authorization_code',
-                'redirect_uri' => $redirectUri,
-                'code' => $code,
-            ]
-        ]);
-
-        if ($response->getStatusCode() != 200) {
-            return redirect()->route('home')->with('error', 'Unauthorized login to Instagram.');
+        try {
+            $user = Socialite::driver('github')->user();
+            $is_user = User::where('social_id', $user->id)->first();
+            if (!empty($user->avatar)) {
+                $filename = $user->id . '.png';
+                FacadesStorage::disk('public')->put('userImage/' . $filename, file_get_contents($user->avatar));
+            } else {
+                $filename = 'default.png';
+            }
+            if (!$is_user) {
+                $saveUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'user_type' => 'SuperAdmin',
+                    'social_id' => $user->id,
+                    'image' => $filename,
+                    'social_media' => 'github',
+                    'password' =>  Hash::make($user->name . '@' . $user->id)
+                ]);
+            } else {
+                $saveUser = User::updateOrCreate([
+                    'social_id' => $user->id,
+                ], [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'user_type' => 'SuperAdmin',
+                    'social_media' => 'github',
+                    'image' => $filename,
+                    'password' => Hash::make($user->name . '@' . $user->id)
+                ]);
+                $saveUser = User::where('social_id', $user->id)->first();
+            }
+            Auth::login($saveUser);
+            return redirect()->route('admin.dashboard');
+        } catch (\Throwable $th) {
+            throw $th;
         }
+    }
 
-        $content = $response->getBody()->getContents();
-        $content = json_decode($content);
+    /**
+     * Show Login in linkedIn Socialite
+     *
+     * @return response()
+     */
+    public function linkedinRedirect()
+    {
+        return Socialite::driver('linkedin')->redirect();
+    }
 
-        $accessToken = $content->access_token;
-        $userId = $content->user_id;
+    /**
+     * Login Via linkedin
+     *
+     * @return response()
+     */
+    public function loginWithLinkedin()
+    {
+        try {
+            dd("try");
+            $user = Socialite::driver('linkedin')->user();
+            dd($user);
+            $is_user = User::where('social_id', $user->id)->first();
+            if (!empty($user->avatar)) {
+                $filename = $user->id . '.png';
+                FacadesStorage::disk('public')->put('userImage/' . $filename, file_get_contents($user->avatar));
+            } else {
+                $filename = 'default.png';
+            }
+            if (!$is_user) {
+                $saveUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'user_type' => 'SuperAdmin',
+                    'social_id' => $user->id,
+                    'image' => $filename,
+                    'social_media' => 'github',
+                    'password' =>  Hash::make($user->name . '@' . $user->id)
+                ]);
+            } else {
+                $saveUser = User::updateOrCreate([
+                    'social_id' => $user->id,
+                ], [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'user_type' => 'SuperAdmin',
+                    'social_media' => 'github',
+                    'image' => $filename,
+                    'password' => Hash::make($user->name . '@' . $user->id)
+                ]);
+                $saveUser = User::where('social_id', $user->id)->first();
+            }
+            Auth::login($saveUser);
+            return redirect()->route('admin.dashboard');
+        } catch (Exception $e) {
+            dd("throw", $e);
 
-        // Get user info
-        $response = $client->request('GET', "https://graph.instagram.com/me?fields=id,username,account_type&access_token={$accessToken}");
-
-        $content = $response->getBody()->getContents();
-        $oAuth = json_decode($content);
-
-        // Get instagram user name
-        $username = $oAuth->username;
-
-        // do your code here
+            echo $e;
+        }
     }
 }

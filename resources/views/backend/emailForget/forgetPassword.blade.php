@@ -51,7 +51,7 @@
                         </div>
                         <div class="row g-0 justify-content-center">
                             <div class="col-sm-8 col-xl-4">
-                                <form class="js-validation-reminder" action="{{ route('forget.password.post') }}"
+                                <form class="js-validation-reminder" action="{{ route('admin.forgetPassword.post') }}"
                                     method="POST">
                                     @csrf
                                     <div class="mb-4">

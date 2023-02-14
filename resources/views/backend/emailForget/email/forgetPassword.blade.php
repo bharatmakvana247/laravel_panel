@@ -187,7 +187,7 @@
                                                         {{-- <p>
                                                             Reset Password
                                                         </p> --}}
-                                                        <a href="{{ route('reset.password.get', $token) }}"
+                                                        <a href="{{ route('admin.resetPassword.get', $token) }}"
                                                             style="background:#2F67F6;color:#ffffff;font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;">Reset
                                                             Password</a>
                                                     </td>

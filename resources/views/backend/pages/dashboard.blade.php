@@ -48,8 +48,8 @@
                     <a class="block block-rounded block-link-pop border-start border-primary border-4"
                         href="javascript:void(0)">
                         <div class="block-content block-content-full">
-                            <div class="fs-sm fw-semibold text-uppercase text-muted">Avg Sale</div>
-                            <div class="fs-2 fw-normal text-dark">$21</div>
+                            <div class="fs-sm fw-semibold text-uppercase text-muted">Users</div>
+                            <div class="fs-2 fw-normal text-dark">{{ $user_count }}</div>
                         </div>
                     </a>
                 </div>

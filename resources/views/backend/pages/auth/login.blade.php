@@ -56,10 +56,11 @@
                                 <form class="js-validation-signin" action="{{ route('admin.login.store') }}" method="POST">
                                     @csrf
                                     <div class="mb-4">
-                                        <input type="email"
+                                        <input id="signup-email" type="email"
                                             class="form-control form-control-lg form-control-alt py-3{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                            id="signup-email" name="email" placeholder="Email"
-                                            value="{{ @old('email') }}">
+                                            name="email"
+                                            value="<?php if(isset($_COOKIE['email_cookie'])){ ?> {{ $_COOKIE['email_cookie'] }} <?php }  ?>"
+                                            required autocomplete="off" placeholder="Email" autofocus>
                                         @if ($errors->has('email'))
                                             <div class="alert-info text-primary">{{ $errors->first('email') }}
                                             </div>
@@ -68,34 +69,51 @@
                                     <div class="mb-4">
                                         <input type="password"
                                             class="form-control form-control-lg form-control-alt py-3{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                            id="signup-password" name="password" placeholder="Password"
-                                            value="{{ @old('password') }}">
+                                            value="<?php if (isset($_COOKIE['password_cookie'])) {
+                                                echo $_COOKIE['password_cookie'];
+                                            } ?>" required="" id="signup-password"
+                                            placeholder="Password" name="password" autocomplete="off">
                                         @if ($errors->has('password'))
                                             <div class="alert-info text-primary">{{ $errors->first('password') }}
                                             </div>
                                         @endif
                                     </div>
+                                    {{-- {{ $_COOKIE['email_cookie'] }} --}}
+                                    <div class="mb-4">
+                                        <div class="form-check">
+                                            {{-- <input class="form-check-input" type="checkbox" value="remember_me"
+                                                id="login-remember" name="remember_me"> --}}
+                                            <input class="form-check-input" type="checkbox" id="remember_me"
+                                                value="remember_me" name="remember_me" <?php if(isset($_COOKIE['email_cookie'])){ ?> checked
+                                                <?php }  ?>> &nbsp;
+                                            <label class="form-check-label" for="login-remember">Remember Me</label>
+                                        </div>
+                                    </div>
 
                                     <div style="overflow: hidden; display: flex; justify-content:space-around;">
-                                        <a href="{{ route('authorized.google') }}"> <img src="{!! url('storage/socialite/google.png') !!}"
+                                        <a href="{{ route('admin.authorized.google') }}"> <img src="{!! url('storage/socialite/google.png') !!}"
                                                 alt="Google" class="img-circle"
                                                 style="height:25px;width:25px;border-radius:50px"></a>
 
-                                        <a href="{{ route('authorized.facebook') }}"> <img src="{!! url('storage/socialite/facebook.png') !!}"
-                                                alt="Facebook" class="img-circle"
+                                        <a href="{{ route('admin.authorized.facebook') }}"> <img
+                                                src="{!! url('storage/socialite/facebook.png') !!}" alt="Facebook" class="img-circle"
                                                 style="height:25px;width:25px;border-radius:50px"></a>
 
-                                        <a href=""> <img src="{!! url('storage/socialite/github.png') !!}" alt="Facebook"
-                                                class="img-circle" style="height:25px;width:25px;border-radius:50px"></a>
-                                        <a href=""> <img src="{!! url('storage/socialite/linked.png') !!}" alt="Facebook"
-                                                class="img-circle" style="height:25px;width:25px;border-radius:50px"></a>
+                                        <a href="{{ route('admin.authorized.github') }}"> <img
+                                                src="{!! url('storage/socialite/github.png') !!}" alt="Github" class="img-circle"
+                                                style="height:25px;width:25px;border-radius:50px"></a>
+
+                                        <a href="{{ route('admin.authorized.linkedin') }}"> <img
+                                                src="{!! url('storage/socialite/linked.png') !!}" alt="linkedin" class="img-circle"
+                                                style="height:25px;width:25px;border-radius:50px"></a>
                                         <a href=""> <img src="{!! url('storage/socialite/insta.png') !!}" alt="Facebook"
                                                 class="img-circle" style="height:25px;width:25px;border-radius:50px"></a>
-                                    </div><br>
+                                    </div>
+                                    <br>
                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                         <div>
                                             <a class="text-muted fs-sm fw-medium d-block d-lg-inline-block mb-1"
-                                                href="{{ route('forget.password.get') }}">
+                                                href="{{ route('admin.forgetPassword.get') }}">
                                                 Forgot Password?
                                             </a>
                                         </div>

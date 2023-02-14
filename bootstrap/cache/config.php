@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:ppLAdgxjm8iiMA3qTjb8pH3swygWpnT08F3i6nlmeAg=',
+    'key' => 'base64:aGn4aoiD3sVNJQeR1jec4dFCkx7pr9VLTgZL2WNAbT4=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -201,7 +201,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\framework/cache/data',
+        'path' => 'D:\\LaravelPanel\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -489,13 +489,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\app',
+        'root' => 'D:\\LaravelPanel\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\app/public',
+        'root' => 'D:\\LaravelPanel\\storage\\app/public',
         'url' => 'http://LaravelPanel.test/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -515,7 +515,7 @@
     ),
     'links' => 
     array (
-      'D:\\BHARAT IA\\Git Hub\\laravel_panel\\public\\storage' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\app/public',
+      'D:\\LaravelPanel\\public\\storage' => 'D:\\LaravelPanel\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -554,13 +554,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\logs/laravel.log',
+        'path' => 'D:\\LaravelPanel\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\logs/laravel.log',
+        'path' => 'D:\\LaravelPanel\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -612,7 +612,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\logs/laravel.log',
+        'path' => 'D:\\LaravelPanel\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -678,7 +678,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\resources\\views/vendor/mail',
+        0 => 'D:\\LaravelPanel\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -805,11 +805,17 @@
       'client_secret' => '1763fe82bb2baa6342b9b57ef13aa74d',
       'redirect' => 'https://127.0.0.1:8000/admin/authorized/facebook/callback',
     ),
-    'instagram' => 
+    'github' => 
     array (
-      'client_id' => '',
-      'client_secret' => '',
-      'redirect' => '',
+      'client_id' => 'a0550045595afd3e92cd',
+      'client_secret' => '60a548d656ab0cfd2958d831de59ba687bebf7bc',
+      'redirect' => 'http://127.0.0.1:8000/admin/authorized/github/callback',
+    ),
+    'linkedin' => 
+    array (
+      'client_id' => '78r0mx0vpknw2m',
+      'client_secret' => 'XFHdBMbdk3RcRL5B',
+      'redirect' => 'http://127.0.0.1:8000/admin/authorized/linkedin/callback',
     ),
   ),
   'session' => 
@@ -818,7 +824,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\framework/sessions',
+    'files' => 'D:\\LaravelPanel\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -838,9 +844,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\resources\\views',
+      0 => 'D:\\LaravelPanel\\resources\\views',
     ),
-    'compiled' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\framework\\views',
+    'compiled' => 'D:\\LaravelPanel\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -915,7 +921,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel',
+    'remote_sites_path' => 'D:\\LaravelPanel',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',

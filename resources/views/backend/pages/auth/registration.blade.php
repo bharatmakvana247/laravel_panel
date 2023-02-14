@@ -105,7 +105,7 @@
                                         <input class="form-control" type="file" name="image" id="example-file-input">
                                     </div>
 
-                                    {{-- <div class="mb-4">
+                                    <div class="mb-4">
                                         <div class="d-md-flex align-items-md-center justify-content-md-between">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
@@ -119,7 +119,7 @@
                                                     Terms</a>
                                             </div>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-lg btn-alt-success">
                                             <i class="fa fa-fw fa-plus me-1 opacity-50"></i> Sign Up
@@ -131,7 +131,7 @@
 
                     </div>
                 </div>
-                {{-- <div
+                <div
                     class="px-4 py-3 w-100 d-lg-none d-flex flex-column flex-sm-row justify-content-between fs-sm text-center text-sm-start">
                     <p class="fw-medium text-black-50 py-2 mb-0">
                         <strong>OneUI 5.4</strong> &copy; <span data-toggle="year-copy"></span>
@@ -147,7 +147,7 @@
                             <a class="text-muted fw-medium" href="javascript:void(0)">Terms</a>
                         </li>
                     </ul>
-                </div> --}}
+                </div>
             </div>
         </div>
         <div class="modal fade" id="one-signup-terms" tabindex="-1" role="dialog" aria-labelledby="one-signup-terms"
@@ -158,7 +158,8 @@
                         <div class="block-header block-header-default">
                             <h3 class="block-title">Terms &amp; Conditions</h3>
                             <div class="block-options">
-                                <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                                <button type="button" class="btn-block-option" data-bs-dismiss="modal"
+                                    aria-label="Close">
                                     <i class="fa fa-fw fa-times"></i>
                                 </button>
                             </div>
