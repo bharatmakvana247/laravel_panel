@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Validator;
 use Storage;
 use Laravel\Socialite\Facades\Socialite;
 
+use function GuzzleHttp\Promise\all;
+
 class AuthController extends Controller
 {
 
@@ -100,18 +102,21 @@ class AuthController extends Controller
      */
     public function customRegister(Request $request)
     {
+
         $customMessages = [
             'username.required' => 'Please Enter Username.',
             'email.required' => 'Please Enter Email.',
             'password.required' => 'Please Enter Password.',
             'password.confirmed' => 'Password and Confirm Password is not matched.',
             'password_confirmation.required' => 'Please Enter Confirm Password.',
+            'signup_terms.required' => 'Please Enter signup_terms.',
         ];
         $validatedData = Validator::make($request->all(), [
             'username' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required',
+            'signup_terms' => 'required'
         ], $customMessages);
 
         if ($validatedData->fails()) {
@@ -129,14 +134,16 @@ class AuthController extends Controller
             } else {
                 $filename = 'default.png';
             }
-            User::create([
+            $user = User::create([
                 'name'   => $request->get('username'),
                 'email' => $request->get('email'),
                 'password' => Hash::make($request->get('password')),
-                'image' => $filename
+                'image' => $filename,
+                'signup_terms' => $request->get('signup_terms'),
             ]);
             return redirect()->route('admin.dashboard');
         } catch (\Exception $e) {
+            dd($e);
             smilify('error', 'User was Not Added.');
             return back();
         }

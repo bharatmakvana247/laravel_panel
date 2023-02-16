@@ -20,9 +20,11 @@ return new class extends Migration
             $table->string('user_type')->default('Admin');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('remember_token')->nullable();
             $table->string('image')->nullable();
             $table->string('social_id')->nullable();
             $table->string('social_media')->nullable();
+            $table->string('signup_terms')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

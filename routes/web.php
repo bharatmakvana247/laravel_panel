@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ForgotPasswordController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 /*
@@ -32,6 +33,8 @@ Route::get('/clear-cache', static function () {
         'message' => 'All cache removed successfully.'
     ]);
 });
+
+// ================================== Before Login =====================================================
 
 Route::get('/', [AuthController::class, 'welcome'])->name('welcome');
 Route::group(['prefix' => 'admin', 'middleware' => 'guest', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
@@ -66,11 +69,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'guest', 'namespace' => 'Admi
     Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('resetPassword.post');
 });
 
+// ================================== After Login =====================================================
+
 Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
     // ---------------------------DashboardController----------------------------------------------------
 
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/logout', [DashboardController::class, 'logout'])->name('logout');
+
+    // ---------------------------DashboardController----------------------------------------------------
+
+    Route::get('/editProfile', [ProfileController::class, 'editProfile'])->name('profile.edit');
+    Route::post('/profile/update/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
     // --------------------------- ProductController ----------------------------------------------------
 

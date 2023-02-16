@@ -154,9 +154,7 @@ class ProductController extends Controller
         }
 
         try {
-            dd("on");
             $oldDetails = Product::where('product_id', $id)->first();
-            dd($oldDetails);
             if ($request->hasFile('product_image')) {
                 $file = $request->file('product_image');
                 $filename = $file->getClientOriginalName();
@@ -169,7 +167,7 @@ class ProductController extends Controller
                     $filename = 'default.png';
                 }
             }
-            $p = Product::where('product_id', $id)->update([
+            Product::where('product_id', $id)->update([
                 'product_name' => $request->get('product_name'),
                 'category_name' => $request->get('category_name'),
                 'brand_id' => $request->get('brand_name'),
@@ -178,12 +176,9 @@ class ProductController extends Controller
                 'product_qty' => $request->get('product_qty'),
                 'product_image' => $filename,
             ]);
-            dd($p);
             smilify('success', 'Product Updated. ⚡️');
             return redirect()->route('admin.product.index');
         } catch (Exception $e) {
-            dd("off");
-
             smilify('error', 'Sorry Product was not Updated.');
             return redirect()->back();
         }

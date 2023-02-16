@@ -78,17 +78,38 @@
                                             </div>
                                         @endif
                                     </div>
-                                    {{-- {{ $_COOKIE['email_cookie'] }} --}}
                                     <div class="mb-4">
                                         <div class="form-check">
-                                            {{-- <input class="form-check-input" type="checkbox" value="remember_me"
-                                                id="login-remember" name="remember_me"> --}}
                                             <input class="form-check-input" type="checkbox" id="remember_me"
                                                 value="remember_me" name="remember_me" <?php if(isset($_COOKIE['email_cookie'])){ ?> checked
                                                 <?php }  ?>> &nbsp;
                                             <label class="form-check-label" for="login-remember">Remember Me</label>
                                         </div>
                                     </div>
+                                    {{-- <div class="row mb-2"
+                                        style="overflow: hidden; display: flex;
+                                        justify-content:space-around;">
+                                        <div class="col-xl-2">
+                                            <a class="btn w-100 btn-alt-danger text-start" href="javascript:void(0)">
+                                                <i class="fab fa-fw fa-google opacity-50 me-1"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-xl-2">
+                                            <a class="btn w-100 btn-alt-info text-start" href="javascript:void(0)">
+                                                <i class="fab fa-fw fa-facebook opacity-50 me-1"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-xl-2">
+                                            <a class="btn w-100 btn-alt-secondary text-start" href="javascript:void(0)">
+                                                <i class="fab fa-fw fa-github opacity-50 me-1"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-xl-2">
+                                            <a class="btn w-100 btn-alt-success text-start" href="javascript:void(0)">
+                                                <i class="fab fa-fw fa-linkedin opacity-50 me-1"></i>
+                                            </a>
+                                        </div>
+                                    </div> --}}
 
                                     <div style="overflow: hidden; display: flex; justify-content:space-around;">
                                         <a href="{{ route('admin.authorized.google') }}"> <img src="{!! url('storage/socialite/google.png') !!}"

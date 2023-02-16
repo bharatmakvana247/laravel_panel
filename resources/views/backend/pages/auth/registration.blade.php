@@ -108,10 +108,15 @@
                                     <div class="mb-4">
                                         <div class="d-md-flex align-items-md-center justify-content-md-between">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="signup-terms" name="signup-terms">
+                                                <input class="form-check-input" type="checkbox" value="1"
+                                                    id="signup-terms" name="signup_terms">
                                                 <label class="form-check-label" for="signup-terms">I agree to
                                                     Terms &amp; Conditions</label>
+                                                @if ($errors->has('signup_terms'))
+                                                    <div class="alert-info text-primary">
+                                                        {{ $errors->first('signup_terms') }}
+                                                    </div>
+                                                @endif
                                             </div>
                                             <div class="py-2">
                                                 <a class="fs-sm fw-medium" href="javascript:void(0)" data-bs-toggle="modal"
