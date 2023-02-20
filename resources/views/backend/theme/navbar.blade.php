@@ -54,7 +54,7 @@
                     <div role="separator" class="dropdown-divider m-0"></div>
                     <div class="p-2">
                         <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="op_auth_lock.html">
+                            href="{{ route('admin.lock') }}">
                             <span class="fs-sm fw-medium">Lock Account</span>
                         </a>
                         <a class="dropdown-item d-flex align-items-center justify-content-between"

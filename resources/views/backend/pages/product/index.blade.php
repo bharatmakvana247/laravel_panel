@@ -8,8 +8,6 @@
                         class="fa fa-fw fa-plus me-1"></i> Add
                     Product</a>
             </div>
-
-
             <div class="block-content block-content-full">
                 <table class="table table-striped table-bordered dt-responsive" id="quiztable">
                     <thead>
@@ -148,6 +146,5 @@
 
         });
     </script>
-
-    @include('backend.pages.deleteSweelAlert')
+    @include('backend.theme.deleteSweelAlert')
 @endsection

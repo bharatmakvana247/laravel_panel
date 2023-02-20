@@ -38,6 +38,14 @@ class AuthController extends Controller
         return view('backend.pages.auth.login');
     }
 
+    public function lockscreen()
+    {
+        if (Auth::user()->screen_lock == 'on') {
+            return view('backend.pages.dashboard.lockscreen');
+        } else {
+            return redirect()->route('admin.dashboard');
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -102,7 +110,6 @@ class AuthController extends Controller
      */
     public function customRegister(Request $request)
     {
-
         $customMessages = [
             'username.required' => 'Please Enter Username.',
             'email.required' => 'Please Enter Email.',

@@ -34,20 +34,17 @@
                 <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0 border-0"
                     aria-labelledby="page-header-user-dropdown">
                     <div class="p-3 text-center bg-body-light border-bottom rounded-top">
-                        <img class="img-avatar img-avatar48 img-avatar-thumb" src="" alt="">
-                        <p class="mt-2 mb-0 fw-medium">John Smith</p>
+                        
+                        <img class="img-avatar img-avatar48 img-avatar-thumb" src="<?php echo \Auth::user()->image !== '' ? url('storage/userImage/' . \Auth::user()->image) : url('storage/default.png'); ?>"
+                            alt="Image">
+
+                        <p class="mt-2 mb-0 fw-medium"><?php echo e(Auth::user()->name); ?></p>
                         <p class="mb-0 text-muted fs-sm fw-medium">Web Developer</p>
                     </div>
                     <div class="p-2">
                         <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="be_pages_generic_inbox.html">
-                            <span class="fs-sm fw-medium">Inbox</span>
-                            <span class="badge rounded-pill bg-primary ms-2">3</span>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="be_pages_generic_profile.html">
+                            href="<?php echo e(route('admin.profile.edit')); ?>">
                             <span class="fs-sm fw-medium">Profile</span>
-                            <span class="badge rounded-pill bg-primary ms-2">1</span>
                         </a>
                         <a class="dropdown-item d-flex align-items-center justify-content-between"
                             href="javascript:void(0)">
@@ -57,7 +54,7 @@
                     <div role="separator" class="dropdown-divider m-0"></div>
                     <div class="p-2">
                         <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="op_auth_lock.html">
+                            href="<?php echo e(route('admin.lock')); ?>">
                             <span class="fs-sm fw-medium">Lock Account</span>
                         </a>
                         <a class="dropdown-item d-flex align-items-center justify-content-between"

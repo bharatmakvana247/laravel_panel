@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password',
         'user_type',
         'image',
+        'screen_lock',
         'social_id',
         'social_media',
         'signup_terms'

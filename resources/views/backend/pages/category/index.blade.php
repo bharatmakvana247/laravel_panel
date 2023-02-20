@@ -131,7 +131,7 @@
 
         });
     </script>
-    @include('backend.pages.deleteSweelAlert')
+    @include('backend.theme.deleteSweelAlert')
     <script>
         $(document).ready(function() {
             $(document).on("click", "a.Showcategories", function(e) {

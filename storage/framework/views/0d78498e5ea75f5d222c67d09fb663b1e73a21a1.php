@@ -79,16 +79,15 @@
                                             </div>
                                         <?php endif; ?>
                                     </div>
-                                    
                                     <div class="mb-4">
                                         <div class="form-check">
-                                            
                                             <input class="form-check-input" type="checkbox" id="remember_me"
                                                 value="remember_me" name="remember_me" <?php if(isset($_COOKIE['email_cookie'])){ ?> checked
                                                 <?php }  ?>> &nbsp;
                                             <label class="form-check-label" for="login-remember">Remember Me</label>
                                         </div>
                                     </div>
+                                    
 
                                     <div style="overflow: hidden; display: flex; justify-content:space-around;">
                                         <a href="<?php echo e(route('admin.authorized.google')); ?>"> <img src="<?php echo url('storage/socialite/google.png'); ?>"

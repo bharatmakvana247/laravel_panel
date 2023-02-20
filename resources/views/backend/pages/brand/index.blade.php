@@ -123,5 +123,5 @@
 
         });
     </script>
-    @include('backend.pages.deleteSweelAlert')
+    @include('backend.theme.deleteSweelAlert')
 @endsection

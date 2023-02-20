@@ -6,7 +6,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ForgotPasswordController;
 use App\Http\Controllers\Backend\ProductController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Backend\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 /*
@@ -37,6 +37,7 @@ Route::get('/clear-cache', static function () {
 // ================================== Before Login =====================================================
 
 Route::get('/', [AuthController::class, 'welcome'])->name('welcome');
+
 Route::group(['prefix' => 'admin', 'middleware' => 'guest', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
 
     // ---------------------------- User Authentication ---------------------------------------
@@ -45,6 +46,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'guest', 'namespace' => 'Admi
     Route::post('/login', [AuthController::class, 'customLogin'])->name('login.store');
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/customRegister', [AuthController::class, 'customRegister'])->name('customRegister');
+
 
     // ---------------------------- Socialite Login ---------------------------------------
     // --Google
@@ -70,8 +72,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'guest', 'namespace' => 'Admi
 });
 
 // ================================== After Login =====================================================
+Route::get('/admin/lock', [AuthController::class, 'lockscreen'])->name('admin.lock');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'screenLock'], 'namespace' => 'Admin', 'as' => 'admin.'], function () {
+    // Route::group(['middleware' => 'screenLock'], function () {
     // ---------------------------DashboardController----------------------------------------------------
 
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -81,6 +85,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin', 'namespace' => 'Ad
 
     Route::get('/editProfile', [ProfileController::class, 'editProfile'])->name('profile.edit');
     Route::post('/profile/update/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');
+    Route::post('/profile/passwordUpdate/{id}', [ProfileController::class, 'updatePass'])->name('profile.updatePass');
 
     // --------------------------- ProductController ----------------------------------------------------
 
@@ -110,3 +115,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin', 'namespace' => 'Ad
     Route::post('/brand/update/{id}', [BrandController::class, 'update'])->name('brand.update');
     Route::get('/brand/delete/{id}', [BrandController::class, 'delete'])->name('brand.delete');
 });
+// });
