@@ -57,9 +57,8 @@
                                     <div class="mb-4">
                                         <input id="signup-email" type="email"
                                             class="form-control form-control-lg form-control-alt py-3<?php echo e($errors->has('email') ? ' is-invalid' : ''); ?>"
-                                            name="email"
-                                            value="<?php if(isset($_COOKIE['email_cookie'])){ ?> <?php echo e($_COOKIE['email_cookie']); ?> <?php }  ?>"
-                                            required autocomplete="off" placeholder="Email" autofocus>
+                                            name="email" value="" required autocomplete="off" placeholder="Email"
+                                            autofocus>
                                         <?php if($errors->has('email')): ?>
                                             <div class="alert-info text-primary"><?php echo e($errors->first('email')); ?>
 
@@ -69,10 +68,8 @@
                                     <div class="mb-4">
                                         <input type="password"
                                             class="form-control form-control-lg form-control-alt py-3<?php echo e($errors->has('password') ? ' is-invalid' : ''); ?>"
-                                            value="<?php if (isset($_COOKIE['password_cookie'])) {
-                                                echo $_COOKIE['password_cookie'];
-                                            } ?>" required="" id="signup-password"
-                                            placeholder="Password" name="password" autocomplete="off">
+                                            value="" required="" id="signup-password" placeholder="Password"
+                                            name="password" autocomplete="off">
                                         <?php if($errors->has('password')): ?>
                                             <div class="alert-info text-primary"><?php echo e($errors->first('password')); ?>
 
@@ -82,8 +79,7 @@
                                     <div class="mb-4">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="remember_me"
-                                                value="remember_me" name="remember_me" <?php if(isset($_COOKIE['email_cookie'])){ ?> checked
-                                                <?php }  ?>> &nbsp;
+                                                value="remember_me" name="remember_me"> &nbsp;
                                             <label class="form-check-label" for="login-remember">Remember Me</label>
                                         </div>
                                     </div>

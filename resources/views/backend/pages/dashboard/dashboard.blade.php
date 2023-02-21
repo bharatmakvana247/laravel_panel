@@ -61,4 +61,16 @@
 @section('styles')
 @endsection
 @section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#lock').on('click', function(e) {
+                $.ajax({
+                    route: 'admin.lock.update',
+                    method: 'post'
+                }).then(function() {
+                    alert('success');
+                });
+            });
+        });
+    </script>
 @endsection

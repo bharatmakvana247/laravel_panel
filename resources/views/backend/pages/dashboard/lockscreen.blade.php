@@ -9,7 +9,7 @@
                             <div class="block-header block-header-default">
                                 <h3 class="block-title">Account Locked</h3>
                                 <div class="block-options">
-                                    <a class="btn-block-option" href="op_auth_signin.html" data-bs-toggle="tooltip"
+                                    <a class="btn-block-option" href="{{ route('admin.login') }}" data-bs-toggle="tooltip"
                                         data-bs-placement="left" title="Sign In with another account">
                                         <i class="fa fa-sign-in-alt"></i>
                                     </a>
@@ -21,11 +21,18 @@
                                     <p class="fw-semibold my-2">
                                         {{ Auth::user()->email }}
                                     </p>
-                                    <form class="js-validation-lock mt-4" action="be_pages_auth_all.html" method="POST">
+                                    <form class="js-validation-lock mt-4" action="{{ route('admin.unlock') }}"
+                                        method="POST">
+                                        @csrf
                                         <div class="mb-4">
                                             <input type="password" class="form-control form-control-lg form-control-alt"
-                                                id="lock-password" name="lock-password" placeholder="Password..">
+                                                id="lock-password" name="lock_password" placeholder="Password..">
+                                            @if ($errors->has('lock_password'))
+                                                <div class="text-danger">{{ $errors->first('lock_password') }}
+                                                </div>
+                                            @endif
                                         </div>
+
                                         <div class="row justify-content-center mb-4">
                                             <div class="col-md-6 col-xl-5">
                                                 <button type="submit" class="btn w-100 btn-alt-success">

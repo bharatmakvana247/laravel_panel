@@ -60,6 +60,18 @@
 <?php $__env->startSection('styles'); ?>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('scripts'); ?>
+    <script>
+        $(document).ready(function() {
+            $('#lock').on('click', function(e) {
+                $.ajax({
+                    route: 'admin.lock.update',
+                    method: 'post'
+                }).then(function() {
+                    alert('success');
+                });
+            });
+        });
+    </script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\LaravelPanel\resources\views/backend/pages/dashboard/dashboard.blade.php ENDPATH**/ ?>

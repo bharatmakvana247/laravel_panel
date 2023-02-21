@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::PhkXvyBXXiNOxFj2',
+            '_route' => 'generated::XGbFfftYytFwbANS',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::6O8gVlSurJtbK5mz',
+            '_route' => 'generated::90Y44ZxU5DP8HJCK',
           ),
           1 => NULL,
           2 => 
@@ -142,7 +142,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::dNfesTAFvloymSIH',
+            '_route' => 'generated::n1W35qn4FGc3BorW',
           ),
           1 => NULL,
           2 => 
@@ -320,7 +320,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'admin.generated::1HKbMdq0o3JlDTvn',
+            '_route' => 'admin.generated::lR34LqNXHrvYJ4vq',
           ),
           1 => NULL,
           2 => 
@@ -360,7 +360,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'admin.generated::T9uazXNktkJuHE36',
+            '_route' => 'admin.generated::GRtvItz9GQknfVRk',
           ),
           1 => NULL,
           2 => 
@@ -400,7 +400,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'admin.generated::sPY95XEtoJikpFye',
+            '_route' => 'admin.generated::ke6MGjZQVa5ln5a9',
           ),
           1 => NULL,
           2 => 
@@ -485,6 +485,45 @@ app('router')->setCompiledRoutes(
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/lockUpdate' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.lock.update',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/unlock' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.unlock',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -1079,7 +1118,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::PhkXvyBXXiNOxFj2' => 
+    'generated::XGbFfftYytFwbANS' => 
     array (
       'methods' => 
       array (
@@ -1091,7 +1130,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => '\\Illuminate\\Routing\\ViewController@__invoke',
         'controller' => '\\Illuminate\\Routing\\ViewController',
-        'as' => 'generated::PhkXvyBXXiNOxFj2',
+        'as' => 'generated::XGbFfftYytFwbANS',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1224,7 +1263,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::6O8gVlSurJtbK5mz' => 
+    'generated::90Y44ZxU5DP8HJCK' => 
     array (
       'methods' => 
       array (
@@ -1241,13 +1280,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:295:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006370000000000000000";}";s:4:"hash";s:44:"OIgTDvUyaOzW+cSHDDmuI2akYC77jIreUzsgSZ6lGG0=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000063b0000000000000000";}";s:4:"hash";s:44:"TNm//uK0xpJwCaHr1utPCEhTlkXFRALSaFvMaRxFe7c=";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::6O8gVlSurJtbK5mz',
+        'as' => 'generated::90Y44ZxU5DP8HJCK',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1263,7 +1302,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::dNfesTAFvloymSIH' => 
+    'generated::n1W35qn4FGc3BorW' => 
     array (
       'methods' => 
       array (
@@ -1289,13 +1328,13 @@ app('router')->setCompiledRoutes(
     return \\response()->json([
         \'message\' => \'All cache removed successfully.\'
     ]);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006390000000000000000";}";s:4:"hash";s:44:"jchRKJXYjevXaAD7PgKo04IyiAsA9OPxsGHRn6v48Us=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000063d0000000000000000";}";s:4:"hash";s:44:"DJXA81U1zjPD2yzshj9+srKym9wG9aU9PBiNJCmuriQ=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::dNfesTAFvloymSIH',
+        'as' => 'generated::n1W35qn4FGc3BorW',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1361,6 +1400,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@index',
         'controller' => 'App\\Http\\Controllers\\AuthController@index',
@@ -1397,6 +1437,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@customLogin',
         'controller' => 'App\\Http\\Controllers\\AuthController@customLogin',
@@ -1434,6 +1475,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@register',
         'controller' => 'App\\Http\\Controllers\\AuthController@register',
@@ -1470,6 +1512,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@customRegister',
         'controller' => 'App\\Http\\Controllers\\AuthController@customRegister',
@@ -1507,6 +1550,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@redirectToGoogle',
         'controller' => 'App\\Http\\Controllers\\AuthController@redirectToGoogle',
@@ -1544,6 +1588,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@handleGoogleCallback',
         'controller' => 'App\\Http\\Controllers\\AuthController@handleGoogleCallback',
@@ -1581,6 +1626,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@facebookRedirect',
         'controller' => 'App\\Http\\Controllers\\AuthController@facebookRedirect',
@@ -1605,7 +1651,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'admin.generated::1HKbMdq0o3JlDTvn' => 
+    'admin.generated::lR34LqNXHrvYJ4vq' => 
     array (
       'methods' => 
       array (
@@ -1618,10 +1664,11 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@loginWithFacebook',
         'controller' => 'App\\Http\\Controllers\\AuthController@loginWithFacebook',
-        'as' => 'admin.generated::1HKbMdq0o3JlDTvn',
+        'as' => 'admin.generated::lR34LqNXHrvYJ4vq',
         'namespace' => 'Admin',
         'prefix' => '/admin',
         'where' => 
@@ -1655,6 +1702,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@githubRedirect',
         'controller' => 'App\\Http\\Controllers\\AuthController@githubRedirect',
@@ -1679,7 +1727,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'admin.generated::T9uazXNktkJuHE36' => 
+    'admin.generated::GRtvItz9GQknfVRk' => 
     array (
       'methods' => 
       array (
@@ -1692,10 +1740,11 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@loginWithGithub',
         'controller' => 'App\\Http\\Controllers\\AuthController@loginWithGithub',
-        'as' => 'admin.generated::T9uazXNktkJuHE36',
+        'as' => 'admin.generated::GRtvItz9GQknfVRk',
         'namespace' => 'Admin',
         'prefix' => '/admin',
         'where' => 
@@ -1729,6 +1778,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@linkedinRedirect',
         'controller' => 'App\\Http\\Controllers\\AuthController@linkedinRedirect',
@@ -1753,7 +1803,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'admin.generated::sPY95XEtoJikpFye' => 
+    'admin.generated::ke6MGjZQVa5ln5a9' => 
     array (
       'methods' => 
       array (
@@ -1766,10 +1816,11 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@loginWithLinkedin',
         'controller' => 'App\\Http\\Controllers\\AuthController@loginWithLinkedin',
-        'as' => 'admin.generated::sPY95XEtoJikpFye',
+        'as' => 'admin.generated::ke6MGjZQVa5ln5a9',
         'namespace' => 'Admin',
         'prefix' => '/admin',
         'where' => 
@@ -1803,6 +1854,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\Backend\\ForgotPasswordController@showForgetPasswordForm',
         'controller' => 'App\\Http\\Controllers\\Backend\\ForgotPasswordController@showForgetPasswordForm',
@@ -1839,6 +1891,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\Backend\\ForgotPasswordController@submitForgetPasswordForm',
         'controller' => 'App\\Http\\Controllers\\Backend\\ForgotPasswordController@submitForgetPasswordForm',
@@ -1876,6 +1929,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\Backend\\ForgotPasswordController@showResetPasswordForm',
         'controller' => 'App\\Http\\Controllers\\Backend\\ForgotPasswordController@showResetPasswordForm',
@@ -1912,6 +1966,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'guest',
         ),
         'uses' => 'App\\Http\\Controllers\\Backend\\ForgotPasswordController@submitResetPasswordForm',
         'controller' => 'App\\Http\\Controllers\\Backend\\ForgotPasswordController@submitResetPasswordForm',
@@ -1950,14 +2005,87 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'App\\Http\\Controllers\\AuthController@lockscreen',
-        'controller' => 'App\\Http\\Controllers\\AuthController@lockscreen',
+        'uses' => 'App\\Http\\Controllers\\Backend\\lockScreenController@lockscreen',
+        'controller' => 'App\\Http\\Controllers\\Backend\\lockScreenController@lockscreen',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
         'as' => 'admin.lock',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.lock.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/lockUpdate',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Backend\\lockScreenController@lockUpdate',
+        'controller' => 'App\\Http\\Controllers\\Backend\\lockScreenController@lockUpdate',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'admin.lock.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.unlock' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/unlock',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Backend\\lockScreenController@unlockscreen',
+        'controller' => 'App\\Http\\Controllers\\Backend\\lockScreenController@unlockscreen',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'admin.unlock',
       ),
       'fallback' => false,
       'defaults' => 
