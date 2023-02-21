@@ -44,7 +44,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::XGbFfftYytFwbANS',
+=======
+            '_route' => 'generated::wyTQ3s4zkLwZUMmN',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
           ),
           1 => NULL,
           2 => 
@@ -122,7 +126,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::90Y44ZxU5DP8HJCK',
+=======
+            '_route' => 'generated::jOkmZGxPzgsNHZHR',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
           ),
           1 => NULL,
           2 => 
@@ -142,7 +150,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::n1W35qn4FGc3BorW',
+=======
+            '_route' => 'generated::9UCJCXiP7GRXy16T',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
           ),
           1 => NULL,
           2 => 
@@ -320,7 +332,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'admin.generated::lR34LqNXHrvYJ4vq',
+=======
+            '_route' => 'admin.generated::2JVYFiQbdDwP3Nph',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
           ),
           1 => NULL,
           2 => 
@@ -360,7 +376,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'admin.generated::GRtvItz9GQknfVRk',
+=======
+            '_route' => 'admin.generated::3nGbyLwrxxC18n3o',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
           ),
           1 => NULL,
           2 => 
@@ -400,7 +420,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'admin.generated::ke6MGjZQVa5ln5a9',
+=======
+            '_route' => 'admin.generated::MdQYH4allMtCExQP',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
           ),
           1 => NULL,
           2 => 
@@ -1118,7 +1142,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::XGbFfftYytFwbANS' => 
+=======
+    'generated::wyTQ3s4zkLwZUMmN' => 
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
     array (
       'methods' => 
       array (
@@ -1130,7 +1158,11 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => '\\Illuminate\\Routing\\ViewController@__invoke',
         'controller' => '\\Illuminate\\Routing\\ViewController',
+<<<<<<< HEAD
         'as' => 'generated::XGbFfftYytFwbANS',
+=======
+        'as' => 'generated::wyTQ3s4zkLwZUMmN',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
       ),
       'fallback' => false,
       'defaults' => 
@@ -1263,7 +1295,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::90Y44ZxU5DP8HJCK' => 
+=======
+    'generated::jOkmZGxPzgsNHZHR' => 
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
     array (
       'methods' => 
       array (
@@ -1280,13 +1316,21 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:295:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
+<<<<<<< HEAD
 }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000063b0000000000000000";}";s:4:"hash";s:44:"TNm//uK0xpJwCaHr1utPCEhTlkXFRALSaFvMaRxFe7c=";}}',
+=======
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006370000000000000000";}";s:4:"hash";s:44:"u2Rdwr1gHd5X51Ib3OfFDyjaCXoTYE4tu6SAAWlVZWU=";}}',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::90Y44ZxU5DP8HJCK',
+=======
+        'as' => 'generated::jOkmZGxPzgsNHZHR',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
       ),
       'fallback' => false,
       'defaults' => 
@@ -1302,7 +1346,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::n1W35qn4FGc3BorW' => 
+=======
+    'generated::9UCJCXiP7GRXy16T' => 
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
     array (
       'methods' => 
       array (
@@ -1328,13 +1376,21 @@ app('router')->setCompiledRoutes(
     return \\response()->json([
         \'message\' => \'All cache removed successfully.\'
     ]);
+<<<<<<< HEAD
 }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000063d0000000000000000";}";s:4:"hash";s:44:"DJXA81U1zjPD2yzshj9+srKym9wG9aU9PBiNJCmuriQ=";}}',
+=======
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006390000000000000000";}";s:4:"hash";s:44:"TJCoK+QqLEKsSnJQdfoZcpbGfudQ0Za7Gj7Mn1hYlKI=";}}',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::n1W35qn4FGc3BorW',
+=======
+        'as' => 'generated::9UCJCXiP7GRXy16T',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
       ),
       'fallback' => false,
       'defaults' => 
@@ -1651,7 +1707,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'admin.generated::lR34LqNXHrvYJ4vq' => 
+=======
+    'admin.generated::2JVYFiQbdDwP3Nph' => 
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
     array (
       'methods' => 
       array (
@@ -1668,7 +1728,11 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@loginWithFacebook',
         'controller' => 'App\\Http\\Controllers\\AuthController@loginWithFacebook',
+<<<<<<< HEAD
         'as' => 'admin.generated::lR34LqNXHrvYJ4vq',
+=======
+        'as' => 'admin.generated::2JVYFiQbdDwP3Nph',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
         'namespace' => 'Admin',
         'prefix' => '/admin',
         'where' => 
@@ -1727,7 +1791,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'admin.generated::GRtvItz9GQknfVRk' => 
+=======
+    'admin.generated::3nGbyLwrxxC18n3o' => 
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
     array (
       'methods' => 
       array (
@@ -1744,7 +1812,11 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@loginWithGithub',
         'controller' => 'App\\Http\\Controllers\\AuthController@loginWithGithub',
+<<<<<<< HEAD
         'as' => 'admin.generated::GRtvItz9GQknfVRk',
+=======
+        'as' => 'admin.generated::3nGbyLwrxxC18n3o',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
         'namespace' => 'Admin',
         'prefix' => '/admin',
         'where' => 
@@ -1803,7 +1875,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'admin.generated::ke6MGjZQVa5ln5a9' => 
+=======
+    'admin.generated::MdQYH4allMtCExQP' => 
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
     array (
       'methods' => 
       array (
@@ -1820,7 +1896,11 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'App\\Http\\Controllers\\AuthController@loginWithLinkedin',
         'controller' => 'App\\Http\\Controllers\\AuthController@loginWithLinkedin',
+<<<<<<< HEAD
         'as' => 'admin.generated::ke6MGjZQVa5ln5a9',
+=======
+        'as' => 'admin.generated::MdQYH4allMtCExQP',
+>>>>>>> 29875c395e3158690acc1a84df0317443579e703
         'namespace' => 'Admin',
         'prefix' => '/admin',
         'where' => 
