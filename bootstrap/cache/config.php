@@ -10,11 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-<<<<<<< HEAD
-    'key' => 'base64:rAs7ZCu5xMfSjufO2lSP+pm8D7Cvtxf5EhyCptw89wk=',
-=======
-    'key' => 'base64:ll5RMpzt0x1CrYen2ZS0X827SQ7MesbI7aO/0qfmoDA=',
->>>>>>> 29875c395e3158690acc1a84df0317443579e703
+    'key' => 'base64:6oi3P07Hl5VHAjTllWtROTS4dC3947pJioKkO5b2ARA=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -205,7 +201,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\storage\\framework/cache/data',
+        'path' => 'D:\\LaravelPanel\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -493,13 +489,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\storage\\app',
+        'root' => 'D:\\LaravelPanel\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\storage\\app/public',
+        'root' => 'D:\\LaravelPanel\\storage\\app/public',
         'url' => 'http://LaravelPanel.test/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -519,7 +515,7 @@
     ),
     'links' => 
     array (
-      'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\public\\storage' => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\storage\\app/public',
+      'D:\\LaravelPanel\\public\\storage' => 'D:\\LaravelPanel\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -558,13 +554,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\storage\\logs/laravel.log',
+        'path' => 'D:\\LaravelPanel\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\storage\\logs/laravel.log',
+        'path' => 'D:\\LaravelPanel\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -616,7 +612,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\storage\\logs/laravel.log',
+        'path' => 'D:\\LaravelPanel\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -682,7 +678,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\resources\\views/vendor/mail',
+        0 => 'D:\\LaravelPanel\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -828,7 +824,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\storage\\framework/sessions',
+    'files' => 'D:\\LaravelPanel\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -848,9 +844,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\resources\\views',
+      0 => 'D:\\LaravelPanel\\resources\\views',
     ),
-    'compiled' => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-\\storage\\framework\\views',
+    'compiled' => 'D:\\LaravelPanel\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -925,7 +921,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'D:\\BHARAT IA\\Git Hub\\AdminPanel---Laravel-OneUI-',
+    'remote_sites_path' => 'D:\\LaravelPanel',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',
