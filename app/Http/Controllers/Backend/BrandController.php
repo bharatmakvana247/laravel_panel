@@ -10,7 +10,7 @@ class BrandController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('isAdmin');
     }
     public function create()
     {

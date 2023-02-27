@@ -1,4 +1,7 @@
 @extends('backend.layouts.authMaster')
+@section('title')
+    Register
+@endsection
 @section('authContent')
     <div class="bg-primary-dark">
         <div class="row g-0 bg-primary-dark-op">
@@ -33,8 +36,8 @@
             </div>
             <div class="hero-static col-lg-8 d-flex flex-column align-items-center bg-body-extra-light">
                 <div class="p-3 w-100 d-lg-none text-center">
-                    <a class="link-fx fw-semibold fs-3 text-dark" href="index.html">
-                        One<span class="fw-normal">UI</span>
+                    <a class="link-fx fw-semibold fs-3 text-dark" href="{{ route('admin.register') }}">
+                        One<span class="fw-normal">UI77</span>
                     </a>
                 </div>
                 <div class="p-4 w-100 flex-grow-1 d-flex align-items-center">

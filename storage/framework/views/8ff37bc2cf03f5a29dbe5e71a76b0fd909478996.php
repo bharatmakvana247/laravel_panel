@@ -13,15 +13,7 @@
                 data-action="header_search_on">
                 <i class="fa fa-fw fa-search"></i>
             </button>
-            <form class="d-none d-md-inline-block" action="be_pages_generic_search.html" method="POST">
-                <div class="input-group input-group-sm">
-                    <input type="text" class="form-control form-control-alt" placeholder="Search.."
-                        id="page-header-search-input2" name="page-header-search-input2">
-                    <span class="input-group-text border-0">
-                        <i class="fa fa-fw fa-search"></i>
-                    </span>
-                </div>
-            </form>
+            
         </div>
         <div class="d-flex align-items-center">
             <div class="dropdown d-inline-block ms-2">
@@ -46,10 +38,7 @@
                             href="<?php echo e(route('admin.profile.edit')); ?>">
                             <span class="fs-sm fw-medium">Profile</span>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="javascript:void(0)">
-                            <span class="fs-sm fw-medium">Settings</span>
-                        </a>
+                        
                     </div>
                     <div role="separator" class="dropdown-divider m-0"></div>
                     <div class="p-2">
@@ -156,7 +145,6 @@
         <div class="content-header">
             <form class="w-100" action="be_pages_generic_search.html" method="POST">
                 <div class="input-group">
-                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
                     <button type="button" class="btn btn-alt-danger" data-toggle="layout"
                         data-action="header_search_off">
                         <i class="fa fa-fw fa-times-circle"></i>

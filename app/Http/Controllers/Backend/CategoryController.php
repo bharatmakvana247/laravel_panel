@@ -15,7 +15,7 @@ class CategoryController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('isAdmin');
     }
 
     public function create()
@@ -88,6 +88,7 @@ class CategoryController extends Controller
             'brand_name.required' => 'Please Enter Brand Name.',
             'category_name.required' => 'Please Enter Category Name.',
         ];
+
         $validatedData = Validator::make($request->all(), [
             'brand_name'  => 'required',
             'category_name'  => 'required'
@@ -115,12 +116,8 @@ class CategoryController extends Controller
 
     public function show(Request $request)
     {
-        dd($request);
-        $categories = Category::find($request->id);
-        dd($categories);
-
-        return redirect('admin.category.form');
-        smilify('success', 'Category Deleted. ⚡️');
-        return redirect()->route('admin.category.index');
+        $category = Category::find($request->id);
+        // return redirect('admin.category.show');
+        return redirect()->route('admin.category.show', compact('category'));
     }
 }

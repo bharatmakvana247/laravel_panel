@@ -1,4 +1,7 @@
 @extends('backend.layouts.authMaster')
+@section('title')
+    Login
+@endsection
 @section('authContent')
     <div class="bg-image" style="background-image: url('assets/media/photos/photo28@2x.jpg');">
         <div class="row g-0 bg-primary-dark-op">

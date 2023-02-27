@@ -78,6 +78,7 @@ class AuthController extends Controller
             // }
             $credentials = $request->only('email', 'password');
             if (Auth::attempt($credentials)) {
+
                 smilify('success', 'Welcome to Admin Panel. ⚡️');
                 return redirect()->route('admin.dashboard');
             }

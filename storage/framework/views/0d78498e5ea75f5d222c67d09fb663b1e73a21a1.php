@@ -1,3 +1,6 @@
+<?php $__env->startSection('title'); ?>
+    Login
+<?php $__env->stopSection(); ?>
 <?php $__env->startSection('authContent'); ?>
     <div class="bg-image" style="background-image: url('assets/media/photos/photo28@2x.jpg');">
         <div class="row g-0 bg-primary-dark-op">

@@ -17,21 +17,15 @@ use Illuminate\Support\Facades\File as FacadesFile;
 
 class ProductController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    public function create()
-    {
-        $form_title = "Product";
-        $category_list = Category::pluck('category_name', 'category_id');
-        $brands_list = Brand::pluck('brand_name', 'brand_id');
-        return view('backend.pages.product.create', compact('form_title', 'brands_list', 'category_list'));
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('isAdmin');
+    // }
 
     public function index(Request $request)
     {
+        $category_list = Category::pluck('category_name', 'category_id');
+        $brands_list = Brand::pluck('brand_name', 'brand_id');
         $form_title = "Product";
         if ($request->ajax()) {
             $products = Product::orderBy('product_id', 'desc');
@@ -56,9 +50,9 @@ class ProductController extends Controller
                 })
                 ->addColumn('productimage', function (Product $products) {
                     if (!empty($products->product_image)) {
-                        return '<img src=' . url("storage/productImage/$products->product_image") . '   width="50%" height="50%" class="img-rounded" align="center" />';
+                        return '<center><img src=' . url("storage/productImage/$products->product_image") . ' class="img-thumbnail" align="center" style="height: 100px; width: 100px;"/></center>';
                     } else {
-                        return '<img src=' . url("storage/productImage/default.png") . '  width="50%" height="50%" class="img-rounded" align="center" />';
+                        return '<center><img src=' . url("storage/productImage/default.png") . ' class="img-thumbnail" align="center" style="height: 100px; width: 100px;"/> </center>';
                     }
                 })
                 ->addColumn('action', function (Product $product) {
@@ -71,55 +65,52 @@ class ProductController extends Controller
                 ->rawColumns(['action', 'category_id', 'brand_id', 'productimage', 'productDetails'])
                 ->make(true);
         }
-        return view('backend.pages.product.index', compact('form_title'));
+        return view('backend.pages.product.index', compact('form_title', 'brands_list', 'category_list'));
     }
 
     public function store(Request $request)
     {
+
         $customMessages = [
             'product_name.required' => 'Please Enter Product name.',
             'product_details.required' => 'Please Enter product_details.',
             'product_price.required' => 'Please Enter product_price.',
             'product_qty.required' => 'Please Enter product_qty.',
-            'product_image.required' => 'Please Enter Image.'
         ];
         $validatedData = Validator::make($request->all(), [
             'product_name' => 'required',
             'product_details' => 'required',
             'product_price' => 'required',
             'product_qty' => 'required',
-            'product_image' => 'required',
-            'brand_id' => 'required',
-            'category_name'  => 'required'
         ], $customMessages);
         if ($validatedData->fails()) {
-            return redirect()->back()->withErrors($validatedData)->withInput();
+            return response()->json([
+                'error' => "error_validtion",
+                'product_name' => $validatedData->errors()->first('product_name'),
+                'product_details' => $validatedData->errors()->first('product_details'),
+                'product_price' => $validatedData->errors()->first('product_price'),
+                'product_qty' => $validatedData->errors()->first('product_qty'),
+            ]);
         }
-
         try {
-            if ($request->hasFile('product_image')) {
-                $file = $request->file('product_image');
-                if ($file->isValid()) {
-                    $extension = $file->getClientOriginalExtension();
-                    $filename = $file->getClientOriginalName();
-                    $filesystem = Storage::disk('public');
-                    $filesystem->putFileAs('productImage', $file, $filename);
-                }
-            }
             Product::create([
                 'product_name' => $request->get('product_name'),
-                'category_name' => $request->get('category_name'),
-                'brand_id' => $request->get('brand_name'),
+                // 'category_name' => $request->get('category_name'),
+                // 'brand_id' => $request->get('brand_name'),
                 'product_details' => $request->get('product_details'),
                 'product_price' => $request->get('product_price'),
                 'product_qty' => $request->get('product_qty'),
-                'product_image' => $filename,
+                // 'product_image' => $filename,
             ]);
             smilify('success', 'Product Added. ⚡️');
-            return redirect()->route('admin.product.index');
+            return response()->json(['success' => 'Record saved successfully.', 'statusCode' => 200]);
+            // return redirect()->route('admin.product.index');
         } catch (Exception $e) {
             smilify('error', 'Sorry Product was not Added.');
-            return redirect()->back();
+            return json_encode(array(
+                "statusCode" => 400
+            ));
+            // return redirect()->back();
         }
     }
 
@@ -192,13 +183,11 @@ class ProductController extends Controller
     function delete($id)
     {
         $product_dlt = Product::where('product_id', $id)->first();
-        // $dlt =   FacadesFile::delete(asset('storage/productImage' . $product_dlt->product_image));
-
-        $data = Product::find($id);
-        $image_path = public_path() . '/storage/productImage/' . $data->product_image;
-        unlink($image_path);
-        $data->delete();
-
+        // Product Image also delete in storage file
+        // $data = Product::find($id);
+        // $image_path = public_path() . '/storage/productImage/' . $data->product_image;
+        // unlink($image_path);
+        // $data->delete();
         $product_dlt->delete();
         smilify('success', 'Product Deleted. ⚡️');
         return redirect()->route('admin.product.index');

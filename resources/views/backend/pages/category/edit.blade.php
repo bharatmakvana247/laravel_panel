@@ -3,7 +3,7 @@
     {{ $form_title }}
 @endsection
 @section('content')
-    {{-- <div class="bg-body-light">
+    <div class="bg-body-light">
         <div class="content content-full">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2">
                 <div class="flex-grow-1">
@@ -23,8 +23,8 @@
                 </nav>
             </div>
         </div>
-    </div> --}}
-    {{-- <div class="content">
+    </div>
+    <div class="content">
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title"> Update-{{ $form_title }}
@@ -42,9 +42,9 @@
                 {!! Form::close() !!}
             </div>
         </div>
-    </div> --}}
+    </div>
 
-    <div class="block-content">
+    {{-- <div class="block-content">
         <a href="javascript:void(0)" class="btn btn-primary btn-circle btn-sm Showpromo" data-bs-toggle="modal"
             data-bs-target="#modal-block-popin" data-toggle="tooltip" title="Show"><i class="fa fa-eye"></i></a>
     </div>
@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 @section('styles')
 @endsection

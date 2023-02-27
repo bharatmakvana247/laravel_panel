@@ -11,8 +11,6 @@
                         class="fa fa-fw fa-plus me-1"></i> Add
                     Category</a>
             </div>
-
-
             <div class="block-content block-content-full">
                 <table class="table table-striped table-bordered dt-responsive" id="quiztable">
                     <thead>
@@ -26,6 +24,21 @@
                     <tbody>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title pull-left" id="exampleModalLabel1">Category Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body testdata">
+                    <h3>Modal Body</h3>
+                </div>
             </div>
         </div>
     </div>
@@ -149,11 +162,14 @@
                         id: id
                     },
                     success: function(msg) {
+                        console.log(msg, "msg");
                         $('.testdata').html(msg);
                         $('#basicModal').modal('show');
                     },
-                    error: function() {
-                        swal("Error!", 'Error in Record Not Show', "error");
+                    error: function(err) {
+                        console.log("err", err);
+                        // swal("Error!", 'Error in Record Not Show', "error");
+                        // smilify("Error!", 'Error in Record Not Show');
                     }
                 });
             });
