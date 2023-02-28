@@ -10,8 +10,8 @@
                 {{-- <a href="{{ route('admin.product.create') }}" class="btn btn-sm btn-primary"> <i
                         class="fa fa-fw fa-plus me-1"></i> Add
                     Product</a> --}}
-                <a type="button" class="btn btn-alt-primary push" data-bs-toggle="modal"
-                    data-bs-target="#modal-block-normal">Add Product</a>
+                <a type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal-block-normal"><i
+                        class="fa fa-fw fa-plus me-1"></i>Add Product</a>
             </div>
             <div class="block-content block-content-full">
                 <table class="table table-striped table-bordered dt-responsive" id="quiztable">
@@ -48,48 +48,105 @@
                             </button>
                         </div>
                     </div>
+                    {{-- <form action="" enctype="multipart/form-data"> --}}
+                    <div class="container">
+                        <center>
+                            <div class="mb-4">
+                                <div id="imagePreview" class="profile-image">
+                                    @if (!empty($product->product_image))
+                                        <img src="{!! url('storage/productImage/' . @$product->product_image) !!}" alt="user-img" class="img-circle"
+                                            style="height:100px;width:100px;border-radius:50px">
+                                    @else
+                                        <img src="{!! url('storage/productImage/default.png') !!}" alt="user-img" class="img-circle"
+                                            style="height:100px;width:100px;border-radius:50px">
+                                    @endif
+                                </div>
+                                {!! Form::file('product_image', ['id' => 'hidden', 'class' => 'product_image', 'accept' => 'product_image/*']) !!}
+                            </div>
+                        </center>
+                        <div class="row">
+                            <div class="col">
+                                <input type="hidden" name="_token" id="csrf" value="{{ Session::token() }}">
+                                <div class="mb-4">
+                                    <label class="form-label" for="example-text-input-alt">Product Name<span
+                                            class="text-danger">*</span></label>
+                                    {!! Form::text('product_name', null, [
+                                        'class' => 'form-control form-control-lg py-2',
+                                        'id' => 'product_name',
+                                        'placeholder' => 'Product Name Here',
+                                    ]) !!}
+                                    <span id="product_name_error" class="text-danger"></span>
+                                </div>
 
-                    {{-- @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
+                                <div class="mb-4">
+                                    <label class="form-label" for="example-text-input-alt">Product Price<span
+                                            class="text-danger">*</span></label>
+                                    {!! Form::text('product_price', null, [
+                                        'class' => 'form-control form-control-lg py-2',
+                                        'id' => 'product_price',
+                                        'placeholder' => 'Product Price Here',
+                                    ]) !!}
+                                    <span id="product_price_error" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label" for="example-text-input-alt">Product Qty<span
+                                            class="text-danger">*</span></label>
+                                    {!! Form::text('product_qty', null, [
+                                        'class' => 'form-control form-control-lg py-2',
+                                        'id' => 'product_qty',
+                                        'placeholder' => 'Product Qty Here',
+                                    ]) !!}
+                                    <span id="product_qty_error" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-4">
+                                    <label class="form-label" for="example-select">Select Brand</label><span
+                                        class="text-danger">*</span>
+                                    {!! Form::select('brand_id', $brands_list, null, [
+                                        'class' => 'form-select',
+                                        'id' => 'brand_id',
+                                        'placeholder' => 'Select Brand',
+                                    ]) !!}
+                                    <span id="product_brand_error" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label" for="example-select">Select Category</label><span
+                                        class="text-danger">*</span>
+                                    {!! Form::select('category_name', $category_list, null, [
+                                        'class' => 'form-select',
+                                        'id' => 'category_name',
+                                        'placeholder' => 'Select Category',
+                                    ]) !!}
+                                    <span id="product_category_error" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label" for="example-textarea-input-alt">Product Details<span
+                                        class="text-danger">*</span></label>
+                                {!! Form::textarea('product_details', null, [
+                                    'class' => 'form-control form-control-lg py-1',
+                                    'id' => 'product_details',
+                                    'placeholder' => 'Product Details Here',
+                                ]) !!}
+                                <span id="product_details_error" class="text-danger"></span>
+                            </div>
                         </div>
-                    @endif --}}
-
-                    <div class="form-group">
-                        <input type="hidden" name="_token" id="csrf" value="{{ Session::token() }}">
-                        <label for="email">Product name:</label>
-                        <input type="text" class="form-control" id="product_name" placeholder="Enter Name"
-                            name="product_name">
-                        <div class="alert alert-danger product_name_error" style="display:none">
-
-                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Product details:</label>
-                        <input type="email" class="form-control" id="product_details" placeholder="Enter Email"
-                            name="product_details">
+                    <div class="block-content block-content-full text-end bg-body">
+                        <button type="submit" id="addProduct" class="btn btn-alt-success">Submit</button>
+                        <button type="submit" id="resProduct" class="btn btn-alt-primary">
+                            Reset
+                        </button>
+                        <a type="submit" href="{{ route('admin.product.index') }}" class="btn btn-alt-danger">
+                            Cancel</a>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Product Price:</label>
-                        <input type="text" class="form-control" id="product_price" placeholder="Enter Phone"
-                            name="product_price">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Product Qty:</label>
-                        <input type="text" class="form-control" id="product_qty" placeholder="Enter City"
-                            name="product_qty">
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="butsave">Submit</button>
+                    {{-- </form> --}}
                 </div>
-
             </div>
         </div>
-    </div>
     </div>
 @endsection
 @section('styles')
@@ -127,59 +184,60 @@
 
     <script>
         $(document).ready(function(e) {
-            $('#butsave').on('click', function() {
-                let productname = $('#product_name').val();
-                let productdetails = $('#product_details').val();
-                let productprice = $('#product_price').val();
-                let productqty = $('#product_qty').val();
-                // if (productname != "" && productdetails != "" && productprice != "" && productqty != "") {
-                /*  $("#butsave").attr("disabled", "disabled"); */
-                $.ajax({
-                    url: "{{ route('admin.product.store') }}",
-                    type: "POST",
-                    data: {
-                        _token: $("#csrf").val(),
-                        product_name: productname,
-                        product_details: productdetails,
-                        product_price: productprice,
-                        product_qty: productqty
-                    },
-                    cache: false,
-                    success: function(data) {
-                        if ($.isEmptyObject(data.error)) {
-                            if (data.statusCode == 200) {
-                                location.reload();
-                            } else if (data.statusCode == 400) {
-                                location.reload();
-                            }
-                        } else {
-                            // $('#product_name_error').html("EnterProd");
-                            $("#product_name_error").html("Hello <b>world!</b>");
-                            // 'product_name' => $validatedData - > errors() - > first(
-                            //         'product_name'),
-                            //     'product_details' => $validatedData - > errors() - > first(
-                            //         'product_details'),
-                            //     'product_price' => $validatedData - > errors() - > first(
-                            //         'product_price'),
-                            //     'product_qty' => $validatedData - > errors() - > first(
-                            //         'product_qty'),
-                            console.log(data);
-                            // printErrorMsg(data.error);
-                        }
-                    }
-                });
-                // } else {
-                //     alert('Please fill all the field !');
-                // }
+            $('#addProduct').on('click', function(e) {
+                e.preventDefault();
+                // var formData = new FormData(this);
+                console.log("formData : ", e);
+                var form_data = new FormData();
+                var ext = name.split('.').pop().toLowerCase();
+
+                // let productname = $('#product_name').val();
+                // console.log("name : ", productname);
+                // let productdetails = $('#product_details').val();
+                // let productprice = $('#product_price').val();
+                // let productqty = $('#product_qty').val();
+                // let categoryname = $('#category_name').val();
+                // let productimage = $('.product_image').val();
+                // console.log("product_image : ", productimage);
+                // let brandname = $('#brand_id').val();
+
+
+                // $.ajax({
+                //     url: "{{ route('admin.product.store') }}",
+                //     type: "POST",
+                //     data: {
+                //         _token: $("#csrf").val(),
+                //         product_name: productname,
+                //         product_details: productdetails,
+                //         product_price: productprice,
+                //         brand_id: brandname,
+                //         category_name: categoryname,
+                //         product_qty: productqty,
+                //         product_image: fd
+
+                //     },
+                //     cache: false,
+                //     success: function(data) {
+                //         console.log("daa", data);
+                //         if ($.isEmptyObject(data.error)) {
+                //             if (data.statusCode == 200) {
+                //                 location.reload();
+                //             } else if (data.statusCode == 400) {
+                //                 location.reload();
+                //             }
+                //         } else {
+                //             console.log('error', data);
+                //             $("#product_name_error").html(data.product_name);
+                //             $("#product_details_error").html(data.product_details);
+                //             $("#product_price_error").html(data.product_price);
+                //             $("#product_qty_error").html(data.product_qty);
+                //             // $("#product_qty_error").html(data.product_qty);
+                //             $("#product_brand_error").html(data.brand_id);
+                //             $("#product_category_error").html(data.category_name);
+                //         }
+                //     }
+                // });
             });
         });
-
-        // function printErrorMsg(msg) {
-        //     $(".print-error-msg").find("ul").html('');
-        //     $(".print-error-msg").css('display', 'block');
-        //     $.each(msg, function(key, value) {
-        //         $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
-        //     });
-        // }
     </script>
 @endsection

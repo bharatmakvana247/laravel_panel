@@ -17,10 +17,18 @@ use Illuminate\Support\Facades\File as FacadesFile;
 
 class ProductController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('isAdmin');
-    // }
+    public function __construct()
+    {
+        $this->middleware('isAdmin');
+    }
+
+    public function create()
+    {
+        $form_title = "Product";
+        $category_list = Category::pluck('category_name', 'category_id');
+        $brands_list = Brand::pluck('brand_name', 'brand_id');
+        return view('backend.pages.product.create', compact('form_title', 'brands_list', 'category_list'));
+    }
 
     public function index(Request $request)
     {
@@ -71,18 +79,22 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
+        dd($request->all());
         $customMessages = [
             'product_name.required' => 'Please Enter Product name.',
-            'product_details.required' => 'Please Enter product_details.',
-            'product_price.required' => 'Please Enter product_price.',
-            'product_qty.required' => 'Please Enter product_qty.',
+            'product_details.required' => 'Please Enter product Details.',
+            'product_price.required' => 'Please Enter product Price.',
+            'product_qty.required' => 'Please Enter product Qty.',
         ];
         $validatedData = Validator::make($request->all(), [
             'product_name' => 'required',
             'product_details' => 'required',
             'product_price' => 'required',
             'product_qty' => 'required',
-        ], $customMessages);
+            'brand_id' =>  'required',
+            'category_name' => 'required'
+        ]);
+
         if ($validatedData->fails()) {
             return response()->json([
                 'error' => "error_validtion",
@@ -90,18 +102,32 @@ class ProductController extends Controller
                 'product_details' => $validatedData->errors()->first('product_details'),
                 'product_price' => $validatedData->errors()->first('product_price'),
                 'product_qty' => $validatedData->errors()->first('product_qty'),
+                'brand_id' => $validatedData->errors()->first('brand_id'),
+                'category_name' => $validatedData->errors()->first('category_name'),
             ]);
         }
         try {
-            Product::create([
+            dd($request->all());
+            if ($request->hasFile('product_image')) {
+                $file = $request->file('product_image');
+                if ($file->isValid()) {
+                    $extension = $file->getClientOriginalExtension();
+                    $filename = $file->getClientOriginalName();
+                    $filesystem = Storage::disk('public');
+                    $filesystem->putFileAs('productImage', $file, $filename);
+                }
+            }
+
+            $pr = Product::create([
                 'product_name' => $request->get('product_name'),
-                // 'category_name' => $request->get('category_name'),
-                // 'brand_id' => $request->get('brand_name'),
+                'category_name' => $request->get('category_name'),
+                'brand_id' => $request->get('brand_id'),
                 'product_details' => $request->get('product_details'),
                 'product_price' => $request->get('product_price'),
                 'product_qty' => $request->get('product_qty'),
-                // 'product_image' => $filename,
+                'product_image' => $filename,
             ]);
+            dd($pr);
             smilify('success', 'Product Added. ⚡️');
             return response()->json(['success' => 'Record saved successfully.', 'statusCode' => 200]);
             // return redirect()->route('admin.product.index');
