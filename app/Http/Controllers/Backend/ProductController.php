@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
-use Exception, Str;
+use Exception;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\File as FacadesFile;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -54,7 +55,7 @@ class ProductController extends Controller
                 })
                 ->addColumn('productDetails', function (Product $products) {
                     // return $products->product_details;
-                    return  Str::limit($products->product_details, 25);
+                    return  Str::limit($products->product_details, 50);
                 })
                 ->addColumn('productimage', function (Product $products) {
                     if (!empty($products->product_image)) {
@@ -79,7 +80,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-        dd($request->all());
         $customMessages = [
             'product_name.required' => 'Please Enter Product name.',
             'product_details.required' => 'Please Enter product Details.',
@@ -107,27 +107,21 @@ class ProductController extends Controller
             ]);
         }
         try {
-            dd($request->all());
             if ($request->hasFile('product_image')) {
-                $file = $request->file('product_image');
-                if ($file->isValid()) {
-                    $extension = $file->getClientOriginalExtension();
-                    $filename = $file->getClientOriginalName();
-                    $filesystem = Storage::disk('public');
-                    $filesystem->putFileAs('productImage', $file, $filename);
-                }
+                $imageName = time() . $request->product_image->getClientOriginalName();
+                $request->product_image->move(public_path('/storage/productImage'), $imageName);
             }
 
-            $pr = Product::create([
+            Product::create([
                 'product_name' => $request->get('product_name'),
                 'category_name' => $request->get('category_name'),
                 'brand_id' => $request->get('brand_id'),
                 'product_details' => $request->get('product_details'),
                 'product_price' => $request->get('product_price'),
                 'product_qty' => $request->get('product_qty'),
-                'product_image' => $filename,
+                'product_image' => $imageName,
             ]);
-            dd($pr);
+
             smilify('success', 'Product Added. ⚡️');
             return response()->json(['success' => 'Record saved successfully.', 'statusCode' => 200]);
             // return redirect()->route('admin.product.index');

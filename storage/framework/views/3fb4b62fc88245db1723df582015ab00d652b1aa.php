@@ -25,7 +25,8 @@
             {
                 data: 'productDetails',
                 name: 'productDetails',
-                className: "text-center",
+                width: '25%',
+                // className: "text-center",
                 searchable: true,
             },
             {
