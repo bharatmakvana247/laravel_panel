@@ -4,7 +4,7 @@
 
 
 <!-- Page JS Code -->
-<script src="<?php echo e(asset('assets/admin/js/pages/be_pages_dashboard.min.js')); ?>"></script>
+
 
 
 <?php if (isset($component)) { $__componentOriginalf6d1e1ab7a8df2de5d0bdc28df8775f180a35b0c = $component; } ?>
@@ -49,5 +49,59 @@
     One.helpersOnLoad(['js-ckeditor']);
 </script>
 <!--End cKEditor Page JS Plugins (CKEditor + SimpleMDE plugins) -->
+
+
+<script>
+    $(document).keydown(function(event) {
+        if (event.ctrlKey && event.which === 66) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success m-1",
+                    cancelButton: "btn btn-danger m-1",
+                    input: "form-control"
+                },
+                // buttonsStyling: false
+                buttonsStyling: !1,
+            })
+            swalWithBootstrapButtons.fire({
+                title: "Are you sure?",
+                text: "You will not be able to recover this imaginary file!",
+                icon: "warning",
+                showCancelButton: !0,
+                customClass: {
+                    confirmButton: "btn btn-danger m-1",
+                    cancelButton: "btn btn-secondary m-1"
+                },
+                confirmButtonText: "Yes, Screen Locked it!",
+                html: !1,
+                preConfirm: e => new Promise((e => {
+                    setTimeout((() => {
+                        e()
+                    }), 50)
+                }))
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    swalWithBootstrapButtons.fire(
+                        'Screen Locked!',
+                        'Your file has been Screen Locked.',
+                        'success'
+                    ).then(function() {
+                        location.href = '<?php echo e(route('admin.lock.update')); ?>';
+                    });
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            });
+        }
+    });
+</script>
+
+
 <?php echo $__env->yieldContent('scripts'); ?>
 <?php /**PATH D:\LaravelPanel\resources\views/backend/theme/footerScript.blade.php ENDPATH**/ ?>

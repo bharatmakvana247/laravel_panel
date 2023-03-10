@@ -36,13 +36,21 @@
         @endif
     </div>
     <div class="mb-4">
-        <label class="form-label" for="example-textarea-input-alt">Product Details<span
-                class="text-danger">*</span></label>
-        {!! Form::textarea('product_details', null, [
+        {{-- {!! Form::textarea('product_details', null, [
             'class' => 'form-control form-control-lg form-control-alt py-1',
             'id' => 'example-text-input-alt',
             'placeholder' => 'Product Details Here',
-        ]) !!}
+            ]) !!} --}}
+        <!-- Start ck editor Page JS Plugins CSS -->
+        <label class="form-label" for="example-textarea-input-alt">Product Details<span
+                class="text-danger">*</span></label>
+        <div class="block block-rounded">
+            <form action="be_forms_editors.html" method="POST" onsubmit="return false;">
+                <div class="mb-4">
+                    <textarea id="js-ckeditor" name="product_details">Product Details Here</textarea>
+                </div>
+            </form>
+        </div>
         @if ($errors->has('product_details'))
             <div class="text-danger">{{ $errors->first('product_details') }}
             </div>

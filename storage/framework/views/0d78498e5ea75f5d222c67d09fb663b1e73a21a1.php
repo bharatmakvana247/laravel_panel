@@ -2,7 +2,7 @@
     Login
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('authContent'); ?>
-    <div class="bg-image" style="background-image: url('assets/media/photos/photo28@2x.jpg');">
+    <div class="bg-image" style="background-image: url('assets/admin/media/photos/photo28@2x.jpg');">
         <div class="row g-0 bg-primary-dark-op">
             <div class="hero-static col-lg-4 d-none d-lg-flex flex-column justify-content-center">
                 <div class="p-4 p-xl-5 flex-grow-1 d-flex align-items-center">

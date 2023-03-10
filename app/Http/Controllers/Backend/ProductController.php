@@ -79,7 +79,6 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-
         $customMessages = [
             'product_name.required' => 'Please Enter Product name.',
             'product_details.required' => 'Please Enter product Details.',
@@ -92,7 +91,8 @@ class ProductController extends Controller
             'product_price' => 'required',
             'product_qty' => 'required',
             'brand_id' =>  'required',
-            'category_name' => 'required'
+            'category_name' => 'required',
+            'product_image' => 'required',
         ]);
 
         if ($validatedData->fails()) {
@@ -104,6 +104,7 @@ class ProductController extends Controller
                 'product_qty' => $validatedData->errors()->first('product_qty'),
                 'brand_id' => $validatedData->errors()->first('brand_id'),
                 'category_name' => $validatedData->errors()->first('category_name'),
+                'product_image' => $validatedData->errors()->first('product_image'),
             ]);
         }
         try {

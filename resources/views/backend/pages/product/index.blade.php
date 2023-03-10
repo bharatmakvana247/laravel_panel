@@ -63,6 +63,7 @@
                                         @endif
                                     </div>
                                     {!! Form::file('product_image', ['id' => 'hidden', 'class' => 'product_image', 'accept' => 'product_image/*']) !!}
+                                    <span id="product_image_error" class="text-danger"></span>
                                 </div>
 
                             </center>
@@ -127,11 +128,16 @@
                                 <div class="mb-4">
                                     <label class="form-label" for="example-textarea-input-alt">Product Details<span
                                             class="text-danger">*</span></label>
-                                    {!! Form::textarea('product_details', null, [
-                                        'class' => 'form-control form-control-lg py-1',
+                                    <div class="block block-rounded">
+                                        <div class="mb-4">
+                                            <textarea id="js-ckeditor" class="product_details_class" name="product_details"></textarea>
+                                        </div>
+                                    </div>
+                                    {{-- {!! Form::textarea('product_details', null, [
+                                        'class' => 'form-control form-control-lg py-1 product_details',
                                         'id' => 'product_details',
                                         'placeholder' => 'Product Details Here',
-                                    ]) !!}
+                                    ]) !!} --}}
                                     <span id="product_details_error" class="text-danger"></span>
                                 </div>
                             </div>
@@ -194,7 +200,9 @@
                 e.preventDefault();
                 let formData = new FormData(this);
                 let productname = $('#product_name').val();
-                let productdetails = $('#product_details').val();
+                // let productdetails = $('#js-ckeditor').val();
+                let productdetails = $('.product_details_class').val();
+                console.log("pro-Details  :", productdetails);
                 let productprice = $('#product_price').val();
                 let productqty = $('#product_qty').val();
                 let categoryname = $('#category_name').val();
@@ -207,7 +215,7 @@
                     contentType: false,
                     processData: false,
                     success: function(data) {
-                        console.log("daa", data);
+                        console.log("daata", data);
                         if ($.isEmptyObject(data.error)) {
                             if (data.statusCode == 200) {
                                 location.reload();
@@ -222,6 +230,7 @@
                             $("#product_qty_error").html(data.product_qty);
                             $("#product_brand_error").html(data.brand_id);
                             $("#product_category_error").html(data.category_name);
+                            $("#product_image_error").html(data.product_image);
                         }
                     }
                 });
