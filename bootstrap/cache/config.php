@@ -1,16 +1,16 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'LaravelPanel',
+    'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://LaravelPanel.test',
+    'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:mNNRryNyWftu3DULATKoq60n0napgNu5itowQiDPOYM=',
+    'key' => 'base64:5PuARiXkGkqIduE72/x/o/D3sx11SgD2/2psZaeSc0g=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -201,7 +201,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\LaravelPanel\\storage\\framework/cache/data',
+        'path' => 'D:\\laravel_panel\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -245,7 +245,7 @@
         'driver' => 'octane',
       ),
     ),
-    'prefix' => 'laravelpanel_cache_',
+    'prefix' => 'laravel_cache_',
   ),
   'cors' => 
   array (
@@ -293,7 +293,7 @@
         'driver' => 'mysql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '3307',
+        'port' => '3308',
         'database' => 'laravelpanel',
         'username' => 'root',
         'password' => '',
@@ -313,7 +313,7 @@
         'driver' => 'pgsql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '3307',
+        'port' => '3308',
         'database' => 'laravelpanel',
         'username' => 'root',
         'password' => '',
@@ -328,7 +328,7 @@
         'driver' => 'sqlsrv',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '3307',
+        'port' => '3308',
         'database' => 'laravelpanel',
         'username' => 'root',
         'password' => '',
@@ -344,7 +344,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'laravelpanel_database_',
+        'prefix' => 'laravel_database_',
       ),
       'default' => 
       array (
@@ -489,14 +489,14 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\LaravelPanel\\storage\\app',
+        'root' => 'D:\\laravel_panel\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\LaravelPanel\\storage\\app/public',
-        'url' => 'http://LaravelPanel.test/storage',
+        'root' => 'D:\\laravel_panel\\storage\\app/public',
+        'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
       ),
@@ -515,7 +515,7 @@
     ),
     'links' => 
     array (
-      'D:\\LaravelPanel\\public\\storage' => 'D:\\LaravelPanel\\storage\\app/public',
+      'D:\\laravel_panel\\public\\storage' => 'D:\\laravel_panel\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -554,13 +554,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\LaravelPanel\\storage\\logs/laravel.log',
+        'path' => 'D:\\laravel_panel\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\LaravelPanel\\storage\\logs/laravel.log',
+        'path' => 'D:\\laravel_panel\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -612,7 +612,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\LaravelPanel\\storage\\logs/laravel.log',
+        'path' => 'D:\\laravel_panel\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -624,11 +624,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.gmail.com',
-        'port' => '587',
-        'encryption' => 'ssl',
-        'username' => 'bharatam@infusionanalysts.com',
-        'password' => 'cmrzygrsajmjtamv',
+        'host' => 'mailhog',
+        'port' => '1025',
+        'encryption' => NULL,
+        'username' => NULL,
+        'password' => NULL,
         'timeout' => NULL,
         'local_domain' => NULL,
       ),
@@ -670,15 +670,15 @@
     ),
     'from' => 
     array (
-      'address' => 'bharatam@infusionanalysts.com',
-      'name' => 'LaravelPanel',
+      'address' => 'hello@example.com',
+      'name' => 'Laravel',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\LaravelPanel\\resources\\views/vendor/mail',
+        0 => 'D:\\laravel_panel\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -761,7 +761,7 @@
       2 => '127.0.0.1',
       3 => '127.0.0.1:8000',
       4 => '::1',
-      5 => 'LaravelPanel.test',
+      5 => 'localhost',
     ),
     'guard' => 
     array (
@@ -824,7 +824,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\LaravelPanel\\storage\\framework/sessions',
+    'files' => 'D:\\laravel_panel\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -833,7 +833,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'laravelpanel_session',
+    'cookie' => 'laravel_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => NULL,
@@ -844,9 +844,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\LaravelPanel\\resources\\views',
+      0 => 'D:\\laravel_panel\\resources\\views',
     ),
-    'compiled' => 'D:\\LaravelPanel\\storage\\framework\\views',
+    'compiled' => 'D:\\laravel_panel\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -921,7 +921,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'D:\\LaravelPanel',
+    'remote_sites_path' => 'D:\\laravel_panel',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',

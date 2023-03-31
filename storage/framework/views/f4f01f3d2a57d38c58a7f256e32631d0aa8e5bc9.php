@@ -1,12 +1,13 @@
-@extends('backend.layouts.master')
-@section('title')
-    {{ $form_title }}
-@endsection
-@section('content')
+
+<?php $__env->startSection('title'); ?>
+    <?php echo e($form_title); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
     <div class="content">
         <div class="block block-rounded">
             <div class="block-header block-header-default">
-                <h3 class="block-title">{{ $form_title }} Table</h3>
+                <h3 class="block-title"><?php echo e($form_title); ?> Table</h3>
                 <a href="javascript:void(0)" onClick="addBrandModal()" href="javascript:void(0)"
                     class="btn btn-sm btn-primary"><i class="fa fa-fw fa-plus me-1"></i> Add Brand</a>
             </div>
@@ -29,7 +30,7 @@
     </div>
 
 
-    {{-- -- Modal Add Brand -- --}}
+    
     <div class="modal" id="modal-block-normal" tabindex="-1" role="dialog" aria-labelledby="modal-block-normal"
         aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -65,7 +66,7 @@
                             <button type="submit" id="resProduct" class="btn btn-alt-primary">
                                 Reset
                             </button>
-                            <a type="submit" href="{{ route('admin.brand.index') }}" class="btn btn-alt-danger">
+                            <a type="submit" href="<?php echo e(route('admin.brand.index')); ?>" class="btn btn-alt-danger">
                                 Cancel</a>
                         </div>
                     </form>
@@ -73,10 +74,10 @@
             </div>
         </div>
     </div>
-@endsection
-@section('styles')
-@endsection
-@section('scripts')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('styles'); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
     <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.flash.min.js"></script>
@@ -85,7 +86,7 @@
     <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>
     <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
     <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js"></script>
-    @include('backend.theme.deleteSweelAlert')
+    <?php echo $__env->make('backend.theme.deleteSweelAlert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <script type="text/javascript">
         $(document).ready(function() {
             var columns = [{
@@ -164,7 +165,7 @@
                 pageLength: 5,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('admin.brand.index') }}",
+                ajax: "<?php echo e(route('admin.brand.index')); ?>",
                 dom: 'Blfrtip',
                 columns: columns,
                 buttons: buttons
@@ -196,7 +197,7 @@
             console.log(formData, "formData");
             $.ajax({
                 type: 'POST',
-                url: "{{ route('admin.brand.store') }}",
+                url: "<?php echo e(route('admin.brand.store')); ?>",
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -222,7 +223,7 @@
                 console.log(id, "id");
                 $.ajax({
                     type: "POST",
-                    url: "{{ route('admin.brand.edit') }}",
+                    url: "<?php echo e(route('admin.brand.edit')); ?>",
                     data: {
                         id: id
                     },
@@ -250,7 +251,7 @@
                 var dId = $(this).attr('id');
                 $.ajax({
                     type: 'POST',
-                    url: "{{ route('admin.brand.delete') }}",
+                    url: "<?php echo e(route('admin.brand.delete')); ?>",
                     data: {
                         id: dId
                     },
@@ -267,4 +268,6 @@
             });
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\laravel_panel\resources\views/backend/pages/brand/index.blade.php ENDPATH**/ ?>

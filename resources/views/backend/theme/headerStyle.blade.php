@@ -11,6 +11,8 @@
     {{-- Notify Css --}}
     @notifyCss
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- Start Data Table Css --}}
     <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('new/jquery.dataTables.min.css') }}" />

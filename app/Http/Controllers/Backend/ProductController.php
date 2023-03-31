@@ -66,9 +66,7 @@ class ProductController extends Controller
                 })
                 ->addColumn('action', function (Product $product) {
                     $action  = '';
-                    // <a type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal-block-normal"><i
-                    // class="fa fa-fw fa-plus me-1"></i>Add Product</a>
-                    $action .= '<a href="javascript:void(0)" class="btn btn-primary btn-circle btn-sm editProduct" data-id="' . $product->product_id . '" data-toggle="tooltip" title="Show"><i class="fa fa-pencil" data-toggle="tooltip" title="Edit"></i></a>';
+                    $action .= '<a class="btn btn-warning btn-circle btn-sm" href=' . route('admin.product.edit', [$product->product_id]) . '><i class="fa fa-pencil" data-toggle="tooltip" title="Edit"></i></a>';
                     $action .= '<a class="btn btn-danger btn-circle btn-sm m-l-10 ml-1 mr-1" data-toggle="tooltip" title="Delete"><i class="fa fa-trash" data-id=' .  route('admin.product.delete', [$product->product_id]) . ' onclick="deleteAlert(event)"></i></a>';
                     $action .= '<a href="javascript:void(0)" class="btn btn-primary btn-circle btn-sm Showpromo" data-id="' . '' . '" data-toggle="tooltip" title="Show"><i class="fa fa-eye"></i></a>';
                     return $action;
@@ -139,24 +137,16 @@ class ProductController extends Controller
 
     function edit($id, Request $request)
     {
-        try {
-            $form_title = "Product";
-            $product = Product::where('product_id', $id)->first();
-            $category_name = Category::pluck('category_name', 'category_id');
-            $brand_name = Brand::pluck('brand_name', 'brand_id');
-            // return response()->json([$form_title, $product, $category_name, $brand_name, 'success' => 'Product updated successfully.', 'statusCode' => 200]);
-            return view('backend.pages.product.edit', compact('form_title', 'product', 'category_name', 'brand_name'));
-        } catch (\Throwable $th) {
-            dd($th);
-            smilify('error', 'error');
-        }
+        $form_title = "Product";
+        $product = Product::where('product_id', $id)->first();
+        $category_name = Category::pluck('category_name', 'category_id');
+        $brand_name = Brand::pluck('brand_name', 'brand_id');
+        return view('backend.pages.product.edit', compact('form_title', 'product', 'category_name', 'brand_name'));
     }
 
 
     function update(Request $request, $id)
     {
-        dd($id);
-        dd($request->all());
         $customMessages = [
             'product_name.required' => 'Please Enter Product name.',
             'product_details.required' => 'Please Enter product_details.',
@@ -173,19 +163,11 @@ class ProductController extends Controller
             'brand_id' => 'required',
             'category_name'  => 'required'
         ], $customMessages);
-
         if ($validatedData->fails()) {
-            // return redirect()->back()->withErrors($validatedData)->withInput();
-            return response()->json([
-                'error' => "error_validtion",
-                'product_name' => $validatedData->errors()->first('product_name'),
-                'product_details' => $validatedData->errors()->first('product_details'),
-                'product_price' => $validatedData->errors()->first('product_price'),
-                'product_qty' => $validatedData->errors()->first('product_qty'),
-                'brand_id' => $validatedData->errors()->first('brand_id'),
-                'category_name' => $validatedData->errors()->first('category_name'),
-            ]);
+            return redirect()->back()->withErrors($validatedData)->withInput();
         }
+        // dd($request->all());
+
 
         try {
             $oldDetails = Product::where('product_id', $id)->first();
@@ -212,33 +194,23 @@ class ProductController extends Controller
             ]);
             smilify('success', 'Product Updated. ⚡️');
             return redirect()->route('admin.product.index');
-            // return response()->json(['success' => 'Product updated successfully.', 'statusCode' => 200]);
         } catch (Exception $e) {
+            dd($e);
             smilify('error', 'Sorry Product was not Updated.');
-            return json_encode(array(
-                "statusCode" => 400
-            ));
-            // return redirect()->back();
+            return redirect()->back();
         }
     }
 
     function delete($id)
     {
-        try {
-            $product_dlt = Product::where('product_id', $id)->first();
-            // Product Image also delete in storage file
-            // $data = Product::find($id);
-            // $image_path = public_path() . '/storage/productImage/' . $data->product_image;
-            // unlink($image_path);
-            // $data->delete();
-            $product_dlt->delete();
-            smilify('success', 'Product Deleted. ⚡️');
-            return redirect()->route('admin.product.index');
-        } catch (\Throwable $th) {
-            smilify('error', 'Sorry Product was not deleted.');
-            return json_encode(array(
-                "statusCode" => 400
-            ));
-        }
+        $product_dlt = Product::where('product_id', $id)->first();
+        // Product Image also delete in storage file
+        // $data = Product::find($id);
+        // $image_path = public_path() . '/storage/productImage/' . $data->product_image;
+        // unlink($image_path);
+        // $data->delete();
+        $product_dlt->delete();
+        smilify('success', 'Product Deleted. ⚡️');
+        return redirect()->route('admin.product.index');
     }
 }

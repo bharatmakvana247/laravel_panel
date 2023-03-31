@@ -1,6 +1,6 @@
 <nav id="sidebar" aria-label="Main Navigation">
     <div class="content-header">
-        <a class="fw-semibold text-dual" href="{{ route('admin.dashboard') }}">
+        <a class="fw-semibold text-dual" href="<?php echo e(route('admin.dashboard')); ?>">
             <span class="smini-visible">
                 <i class="fa fa-circle-notch text-primary"></i>
             </span>
@@ -95,25 +95,25 @@
         <div class="content-side">
             <ul class="nav-main">
                 <li class="nav-main-item">
-                    <a class="nav-main-link active" href="{{ route('admin.dashboard') }}">
+                    <a class="nav-main-link active" href="<?php echo e(route('admin.dashboard')); ?>">
                         <i class="nav-main-link-icon si si-speedometer"></i>
                         <span class="nav-main-link-name">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
-                    <a class="nav-main-link active" href="{{ route('admin.product.index') }}">
+                    <a class="nav-main-link active" href="<?php echo e(route('admin.product.index')); ?>">
                         <i class="nav-main-link-icon fab fa-product-hunt"></i>
                         <span class="nav-main-link-name">Product</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
-                    <a class="nav-main-link active" href="{{ route('admin.category.index') }}">
+                    <a class="nav-main-link active" href="<?php echo e(route('admin.category.index')); ?>">
                         <i class="nav-main-link-icon si si-energy"></i>
                         <span class="nav-main-link-name">Category</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
-                    <a class="nav-main-link active" href="{{ route('admin.brand.index') }}">
+                    <a class="nav-main-link active" href="<?php echo e(route('admin.brand.index')); ?>">
                         <i class="nav-main-link-icon si si-energy"></i>
                         <span class="nav-main-link-name">Brand</span>
                     </a>
@@ -122,3 +122,4 @@
         </div>
     </div>
 </nav>
+<?php /**PATH D:\laravel_panel\resources\views/backend/theme/sidebar.blade.php ENDPATH**/ ?>

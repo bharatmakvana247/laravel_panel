@@ -9,10 +9,4 @@ php artisan optimize
 php artisan cache:clear
 php artisan clear-compiled
 php artisan key:generate
-php artisan event:clear
-php artisan event:cache
-php artisan optimize:clear
-# composer clear-cache
-# composer cc
-# npm cache clean --force
 # php artisan storage:link
