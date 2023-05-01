@@ -19,4 +19,4 @@
 <?php endif; ?>
 <?php echo notifyJs(); ?>
 <?php echo $__env->yieldContent('scripts'); ?>
-<?php /**PATH D:\laravel_panel\resources\views/backend/authTheme/footerScript.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\BHARAT IA\Git Hub\laravel_panel\resources\views/backend/authTheme/footerScript.blade.php ENDPATH**/ ?>

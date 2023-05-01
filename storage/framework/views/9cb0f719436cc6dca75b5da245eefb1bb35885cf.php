@@ -13,4 +13,4 @@
 </body>
 
 </html>
-<?php /**PATH D:\laravel_panel\resources\views/backend/layouts/authMaster.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\BHARAT IA\Git Hub\laravel_panel\resources\views/backend/layouts/authMaster.blade.php ENDPATH**/ ?>

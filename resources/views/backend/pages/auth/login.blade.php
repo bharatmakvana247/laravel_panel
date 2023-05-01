@@ -111,22 +111,22 @@
                                     </div> --}}
 
                                     <div style="overflow: hidden; display: flex; justify-content:space-around;">
-                                        <a href="{{ route('admin.authorized.google') }}"> <img src="{!! url('storage/socialite/google.png') !!}"
+                                        <a href="{{ route('admin.authorized.google') }}"> <img src="{{ asset('assets/socialite/google.png') }}"
                                                 alt="Google" class="img-circle"
                                                 style="height:25px;width:25px;border-radius:50px"></a>
 
                                         <a href="{{ route('admin.authorized.facebook') }}"> <img
-                                                src="{!! url('storage/socialite/facebook.png') !!}" alt="Facebook" class="img-circle"
+                                                src="{{ asset('assets/socialite/facebook.png') }}" alt="Facebook" class="img-circle"
                                                 style="height:25px;width:25px;border-radius:50px"></a>
 
                                         <a href="{{ route('admin.authorized.github') }}"> <img
-                                                src="{!! url('storage/socialite/github.png') !!}" alt="Github" class="img-circle"
+                                                src="{{ asset('assets/socialite/github.png') }}" alt="Github" class="img-circle"
                                                 style="height:25px;width:25px;border-radius:50px"></a>
 
                                         <a href="{{ route('admin.authorized.linkedin') }}"> <img
-                                                src="{!! url('storage/socialite/linked.png') !!}" alt="linkedin" class="img-circle"
+                                                src="{{ asset('assets/socialite/linked.png') }}" alt="linkedin" class="img-circle"
                                                 style="height:25px;width:25px;border-radius:50px"></a>
-                                        <a href=""> <img src="{!! url('storage/socialite/insta.png') !!}" alt="Facebook"
+                                        <a href=""> <img src="{{ asset('assets/socialite/insta.png') }}" alt="Instagram"
                                                 class="img-circle" style="height:25px;width:25px;border-radius:50px"></a>
                                     </div>
                                     <br>

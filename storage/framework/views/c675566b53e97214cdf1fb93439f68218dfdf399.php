@@ -25,4 +25,4 @@
     
     <?php echo $__env->yieldContent('styles'); ?>
 </head>
-<?php /**PATH D:\laravel_panel\resources\views/backend/theme/headerStyle.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\BHARAT IA\Git Hub\laravel_panel\resources\views/backend/theme/headerStyle.blade.php ENDPATH**/ ?>

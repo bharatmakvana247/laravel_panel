@@ -90,22 +90,22 @@
                                     
 
                                     <div style="overflow: hidden; display: flex; justify-content:space-around;">
-                                        <a href="<?php echo e(route('admin.authorized.google')); ?>"> <img src="<?php echo url('storage/socialite/google.png'); ?>"
+                                        <a href="<?php echo e(route('admin.authorized.google')); ?>"> <img src="<?php echo e(asset('assets/socialite/google.png')); ?>"
                                                 alt="Google" class="img-circle"
                                                 style="height:25px;width:25px;border-radius:50px"></a>
 
                                         <a href="<?php echo e(route('admin.authorized.facebook')); ?>"> <img
-                                                src="<?php echo url('storage/socialite/facebook.png'); ?>" alt="Facebook" class="img-circle"
+                                                src="<?php echo e(asset('assets/socialite/facebook.png')); ?>" alt="Facebook" class="img-circle"
                                                 style="height:25px;width:25px;border-radius:50px"></a>
 
                                         <a href="<?php echo e(route('admin.authorized.github')); ?>"> <img
-                                                src="<?php echo url('storage/socialite/github.png'); ?>" alt="Github" class="img-circle"
+                                                src="<?php echo e(asset('assets/socialite/github.png')); ?>" alt="Github" class="img-circle"
                                                 style="height:25px;width:25px;border-radius:50px"></a>
 
                                         <a href="<?php echo e(route('admin.authorized.linkedin')); ?>"> <img
-                                                src="<?php echo url('storage/socialite/linked.png'); ?>" alt="linkedin" class="img-circle"
+                                                src="<?php echo e(asset('assets/socialite/linked.png')); ?>" alt="linkedin" class="img-circle"
                                                 style="height:25px;width:25px;border-radius:50px"></a>
-                                        <a href=""> <img src="<?php echo url('storage/socialite/insta.png'); ?>" alt="Facebook"
+                                        <a href=""> <img src="<?php echo e(asset('assets/socialite/insta.png')); ?>" alt="Instagram"
                                                 class="img-circle" style="height:25px;width:25px;border-radius:50px"></a>
                                     </div>
                                     <br>
@@ -153,4 +153,4 @@
 <?php $__env->startSection('scripts'); ?>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('backend.layouts.authMaster', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\laravel_panel\resources\views/backend/pages/auth/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.authMaster', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\BHARAT IA\Git Hub\laravel_panel\resources\views/backend/pages/auth/login.blade.php ENDPATH**/ ?>
