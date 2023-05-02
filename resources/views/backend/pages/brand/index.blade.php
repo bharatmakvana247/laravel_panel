@@ -228,7 +228,6 @@
                     },
                     dataType: 'json',
                     success: function(res) {
-                        console.log("res", res);
                         $('#brandModal').html("Edit product");
                         $("#modal-block-normal").modal('show');
                         $('#brand_id').val(res.brand_id);

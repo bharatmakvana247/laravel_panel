@@ -21,8 +21,7 @@ class CategoryController extends Controller
     public function create()
     {
         $form_title = "Category";
-        $brands_list = Brand::pluck('brand_name', 'brand_id');
-        return view('backend.pages.category.create', compact('form_title', 'brands_list'));
+        return view('backend.pages.category.create', compact('form_title'));
     }
 
     public function index(Request $request)
@@ -31,14 +30,11 @@ class CategoryController extends Controller
         if ($request->ajax()) {
             $categories = Category::with('brand')->orderBy('category_id', 'desc');
             return DataTables::of($categories)->addIndexColumn()
-                ->editColumn('brand_id', function (Category $categories) {
-                    return $categories->brand->brand_name;
-                })
                 ->addColumn('action', function () {
                     $actionBtn = '-';
                     return $actionBtn;
                 })
-                ->rawColumns(['action', 'brand_id'])
+                ->rawColumns(['action'])
                 ->addColumn('action', function (Category $category) {
                     $action  = '';
                     $action .= '<a class="btn btn-warning btn-circle btn-sm" href=' . route('admin.category.edit', [$category->category_id]) . '><i class="fa fa-pencil" data-toggle="tooltip" title="Edit"></i></a>';
@@ -54,11 +50,9 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $customMessages = [
-            'brand_name.required' => 'Please Enter Brand Name.',
             'category_name.required' => 'Please Enter Category Name.',
         ];
         $validatedData = Validator::make($request->all(), [
-            'brand_name'  => 'required',
             'category_name'  => 'required'
         ], $customMessages);
         if ($validatedData->fails()) {
@@ -67,7 +61,6 @@ class CategoryController extends Controller
 
         Category::create([
             'category_name' => $request->get('category_name'),
-            'brand_name' => $request->get('brand_name'),
         ]);
 
         smilify('success', 'Product Added. ⚡️');
@@ -78,19 +71,16 @@ class CategoryController extends Controller
     {
         $form_title = "Category";
         $category = Category::where('category_id', $id)->first();
-        $brands_list = Brand::pluck('brand_name', 'brand_id');
-        return view('backend.pages.category.edit', compact('category', 'form_title', 'brands_list'));
+        return view('backend.pages.category.edit', compact('category', 'form_title'));
     }
 
     public function update(Request $request, $id)
     {
         $customMessages = [
-            'brand_name.required' => 'Please Enter Brand Name.',
             'category_name.required' => 'Please Enter Category Name.',
         ];
 
         $validatedData = Validator::make($request->all(), [
-            'brand_name'  => 'required',
             'category_name'  => 'required'
         ], $customMessages);
         if ($validatedData->fails()) {
@@ -99,7 +89,6 @@ class CategoryController extends Controller
 
         Category::where('category_id', $id)->update([
             'category_name' => $request->get('category_name'),
-            'brand_name' => $request->get('brand_name'),
         ]);
 
         smilify('success', 'Category Updated. ⚡️');
@@ -116,8 +105,8 @@ class CategoryController extends Controller
 
     public function show(Request $request)
     {
-        $category = Category::find($request->id);
-        // return redirect('admin.category.show');
-        return redirect()->route('admin.category.show', compact('category'));
+        $category = Category::where("category_id",$request->id)->first();
+        return view('backend.pages.category.show',compact('category'));
+        // return redirect()->route('admin.category.show', compact('category'));
     }
 }

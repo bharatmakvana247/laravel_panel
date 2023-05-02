@@ -2,8 +2,8 @@
 <div class="table-responsive">
     <table class="table table-bordered">
         <tr>
-            <th>Category Name</th>
-            <td>{{$category->category_name}}</td>
+            <th>Product Name</th>
+            <td>{{$product->product_name}}</td>
         </tr>
     </table>
 </div>

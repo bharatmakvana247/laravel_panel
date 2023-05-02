@@ -16,27 +16,21 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-            'brand_name' => '1',
             'category_name' => 'Mobiles',
         ]);
         Category::create([
-            'brand_name' => '1',
             'category_name' => 'Laptop',
         ]);
         Category::create([
-            'brand_name' => '1',
             'category_name' => 'Pendrive',
         ]);
         Category::create([
-            'brand_name' => '2',
             'category_name' => 'Desktop',
         ]);
         Category::create([
-            'brand_name' => '3',
             'category_name' => 'Headphone',
         ]);
         Category::create([
-            'brand_name' => '1',
             'category_name' => 'Smartwatch',
         ]);
     }

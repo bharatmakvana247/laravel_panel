@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:RzP/Zq30ivB2xYHSYEskuTdgOHB7tmJXDw9Y3cM6/LU=',
+    'key' => 'base64:U/5ejxOUmd4B0bu3bKNZz1Wb9CmcQqNhJQ0JrZhU/1c=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -201,7 +201,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\framework/cache/data',
+        'path' => 'D:\\laravel_panel\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -489,13 +489,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\app',
+        'root' => 'D:\\laravel_panel\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\app/public',
+        'root' => 'D:\\laravel_panel\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -515,7 +515,7 @@
     ),
     'links' => 
     array (
-      'D:\\BHARAT IA\\Git Hub\\laravel_panel\\public\\storage' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\app/public',
+      'D:\\laravel_panel\\public\\storage' => 'D:\\laravel_panel\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -554,13 +554,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\logs/laravel.log',
+        'path' => 'D:\\laravel_panel\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\logs/laravel.log',
+        'path' => 'D:\\laravel_panel\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -612,7 +612,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\logs/laravel.log',
+        'path' => 'D:\\laravel_panel\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -678,7 +678,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\resources\\views/vendor/mail',
+        0 => 'D:\\laravel_panel\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -824,7 +824,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\framework/sessions',
+    'files' => 'D:\\laravel_panel\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -844,9 +844,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\resources\\views',
+      0 => 'D:\\laravel_panel\\resources\\views',
     ),
-    'compiled' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel\\storage\\framework\\views',
+    'compiled' => 'D:\\laravel_panel\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -921,7 +921,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'D:\\BHARAT IA\\Git Hub\\laravel_panel',
+    'remote_sites_path' => 'D:\\laravel_panel',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',

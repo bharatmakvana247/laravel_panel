@@ -1,15 +1,14 @@
-@extends('backend.layouts.master')
-@section('title')
-    {{ $form_title }}
-@endsection
-@section('content')
+
+<?php $__env->startSection('title'); ?>
+    <?php echo e($form_title); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
     <div class="content">
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">Product Table</h3>
-                {{-- <a href="{{ route('admin.product.create') }}" class="btn btn-sm btn-primary"> <i
-                        class="fa fa-fw fa-plus me-1"></i> Add
-                    Product</a> --}}
+                
                 <a type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal-block-normal"><i
                         class="fa fa-fw fa-plus me-1"></i>Add Product</a>
             </div>
@@ -34,7 +33,7 @@
         </div>
     </div>
 
-    {{-- -- Modal Add Product -- --}}
+    
     <div class="modal" id="modal-block-normal" tabindex="-1" role="dialog" aria-labelledby="modal-block-normal"
         aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -49,20 +48,21 @@
                         </div>
                     </div>
                     <form action="" method="POST" id="formID" enctype="multipart/form-data">
-                        @csrf
+                        <?php echo csrf_field(); ?>
                         <div class="container">
                             <center>
                                 <div class="mb-4">
                                     <div id="imagePreview" class="profile-image">
-                                        @if (!empty($product->product_image))
-                                            <img src="{!! url('storage/productImage/' . @$product->product_image) !!}" alt="user-img" class="img-circle"
+                                        <?php if(!empty($product->product_image)): ?>
+                                            <img src="<?php echo url('storage/productImage/' . @$product->product_image); ?>" alt="user-img" class="img-circle"
                                                 style="height:100px;width:100px;border-radius:50px">
-                                        @else
-                                            <img src="{!! url('storage/productImage/default.png') !!}" alt="user-img" class="img-circle"
+                                        <?php else: ?>
+                                            <img src="<?php echo url('storage/productImage/default.png'); ?>" alt="user-img" class="img-circle"
                                                 style="height:100px;width:100px;border-radius:50px">
-                                        @endif
+                                        <?php endif; ?>
                                     </div>
-                                    {!! Form::file('product_image', ['id' => 'hidden', 'class' => 'product_image', 'accept' => 'product_image/*']) !!}
+                                    <?php echo Form::file('product_image', ['id' => 'hidden', 'class' => 'product_image', 'accept' => 'product_image/*']); ?>
+
                                     <span id="product_image_error" class="text-danger"></span>
                                 </div>
 
@@ -72,33 +72,36 @@
                                     <div class="mb-4">
                                         <label class="form-label" for="example-text-input-alt">Product Name<span
                                                 class="text-danger">*</span></label>
-                                        {!! Form::text('product_name', null, [
+                                        <?php echo Form::text('product_name', null, [
                                             'class' => 'form-control form-control-lg py-2',
                                             'id' => 'product_name',
                                             'placeholder' => 'Product Name Here',
-                                        ]) !!}
+                                        ]); ?>
+
                                         <span id="product_name_error" class="text-danger"></span>
                                     </div>
 
                                     <div class="mb-4">
                                         <label class="form-label" for="example-text-input-alt">Product Price<span
                                                 class="text-danger">*</span></label>
-                                        {!! Form::text('product_price', null, [
+                                        <?php echo Form::text('product_price', null, [
                                             'class' => 'form-control form-control-lg py-2',
                                             'id' => 'product_price',
                                             'placeholder' => 'Product Price Here',
-                                        ]) !!}
+                                        ]); ?>
+
                                         <span id="product_price_error" class="text-danger"></span>
                                     </div>
 
                                     <div class="mb-4">
                                         <label class="form-label" for="example-text-input-alt">Product Qty<span
                                                 class="text-danger">*</span></label>
-                                        {!! Form::text('product_qty', null, [
+                                        <?php echo Form::text('product_qty', null, [
                                             'class' => 'form-control form-control-lg py-2',
                                             'id' => 'product_qty',
                                             'placeholder' => 'Product Qty Here',
-                                        ]) !!}
+                                        ]); ?>
+
                                         <span id="product_qty_error" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -106,22 +109,24 @@
                                     <div class="mb-4">
                                         <label class="form-label" for="example-select">Select Brand</label><span
                                             class="text-danger">*</span>
-                                        {!! Form::select('brand_id', $brands_list, null, [
+                                        <?php echo Form::select('brand_id', $brands_list, null, [
                                             'class' => 'form-select',
                                             'id' => 'brand_id',
                                             'placeholder' => 'Select Brand',
-                                        ]) !!}
+                                        ]); ?>
+
                                         <span id="product_brand_error" class="text-danger"></span>
                                     </div>
 
                                     <div class="mb-4">
                                         <label class="form-label" for="example-select">Select Category</label><span
                                             class="text-danger">*</span>
-                                        {!! Form::select('category_name', $category_list, null, [
+                                        <?php echo Form::select('category_name', $category_list, null, [
                                             'class' => 'form-select',
                                             'id' => 'category_name',
                                             'placeholder' => 'Select Category',
-                                        ]) !!}
+                                        ]); ?>
+
                                         <span id="product_category_error" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -133,11 +138,7 @@
                                             <textarea id="js-ckeditor" class="product_details_class" name="product_details"></textarea>
                                         </div>
                                     </div>
-                                    {{-- {!! Form::textarea('product_details', null, [
-                                        'class' => 'form-control form-control-lg py-1 product_details',
-                                        'id' => 'product_details',
-                                        'placeholder' => 'Product Details Here',
-                                    ]) !!} --}}
+                                    
                                     <span id="product_details_error" class="text-danger"></span>
                                 </div>
                             </div>
@@ -147,7 +148,7 @@
                             <button type="submit" id="resProduct" class="btn btn-alt-primary">
                                 Reset
                             </button>
-                            <a type="submit" href="{{ route('admin.product.index') }}" class="btn btn-alt-danger">
+                            <a type="submit" href="<?php echo e(route('admin.product.index')); ?>" class="btn btn-alt-danger">
                                 Cancel</a>
                         </div>
                     </form>
@@ -171,8 +172,8 @@
             </div>
         </div>
     </div>
-@endsection
-@section('styles')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('styles'); ?>
     <style>
         #hidden {
             display: none;
@@ -181,12 +182,12 @@
             border-radius: 50px;
         }
     </style>
-@endsection
-@section('scripts')
-    @include('backend.pages.product.datatable')
-    @include('backend.theme.deleteSweelAlert')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+    <?php echo $__env->make('backend.pages.product.datatable', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('backend.theme.deleteSweelAlert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-    {{-- Image Content --}}
+    
     <script type="text/javascript">
         function readURL(input) {
             if (input.files && input.files[0]) {
@@ -225,7 +226,7 @@
                 let brandname = $('#brand_id').val();
                 let productimage = $('.product_image').val();
                 $.ajax({
-                    url: "{{ route('admin.product.store') }}",
+                    url: "<?php echo e(route('admin.product.store')); ?>",
                     type: "POST",
                     data: formData,
                     contentType: false,
@@ -262,7 +263,7 @@
             console.log("Id :",id);
 
             $.ajax({
-                    url: "{{ route('admin.product.show') }}",
+                    url: "<?php echo e(route('admin.product.show')); ?>",
                     type: 'get',
                     data: {
                         id: id
@@ -280,4 +281,6 @@
             });
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\laravel_panel\resources\views/backend/pages/product/index.blade.php ENDPATH**/ ?>

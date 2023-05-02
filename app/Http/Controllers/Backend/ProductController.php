@@ -68,7 +68,7 @@ class ProductController extends Controller
                     $action  = '';
                     $action .= '<a class="btn btn-warning btn-circle btn-sm" href=' . route('admin.product.edit', [$product->product_id]) . '><i class="fa fa-pencil" data-toggle="tooltip" title="Edit"></i></a>';
                     $action .= '<a class="btn btn-danger btn-circle btn-sm m-l-10 ml-1 mr-1" data-toggle="tooltip" title="Delete"><i class="fa fa-trash" data-id=' .  route('admin.product.delete', [$product->product_id]) . ' onclick="deleteAlert(event)"></i></a>';
-                    $action .= '<a href="javascript:void(0)" class="btn btn-primary btn-circle btn-sm Showpromo" data-id="' . '' . '" data-toggle="tooltip" title="Show"><i class="fa fa-eye"></i></a>';
+                    $action .= '<a href="javascript:void(0)" class="btn btn-primary btn-circle btn-sm ShowProducts" data-id="' . $product->product_id . '" data-toggle="tooltip" title="Show"><i class="fa fa-eye"></i></a>';
                     return $action;
                 })
                 ->rawColumns(['action', 'category_id', 'brand_id', 'productimage', 'productDetails'])
@@ -77,6 +77,11 @@ class ProductController extends Controller
         return view('backend.pages.product.index', compact('form_title', 'brands_list', 'category_list'));
     }
 
+    public function show(Request $request)
+    {
+        $product = Product::where("product_id",$request->id)->first();
+        return view('backend.pages.product.show',compact('product'));
+    }
     public function store(Request $request)
     {
         $customMessages = [
